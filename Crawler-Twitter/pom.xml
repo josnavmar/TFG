@@ -34,6 +34,25 @@
 			<artifactId>twitter4j-core</artifactId>
 			<version>[4.0,)</version>
 		</dependency>
+		
+		<dependency>
+  			<groupId>org.twitter4j</groupId> 
+  			<artifactId>twitter4j-core</artifactId> 
+  			<version>[4.0,)</version> 
+  		</dependency>
+	 	
+	 	<dependency>
+  			<groupId>org.twitter4j</groupId> 
+  			<artifactId>twitter4j-stream</artifactId> 
+  			<version>4.0.6</version> 
+  		</dependency>
+ 		
+ 		<dependency>
+  			<groupId>mysql</groupId> 
+  			<artifactId>mysql-connector-java</artifactId> 
+  			<version>6.0.4</version> 
+  		</dependency>
+  		
 	</dependencies>
 	<build>
 		<finalName>Crawler-Twitter</finalName>
