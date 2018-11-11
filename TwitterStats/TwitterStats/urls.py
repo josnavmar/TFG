@@ -17,8 +17,9 @@ Including another URLconf
 from django.contrib import admin
 from django.conf.urls import include, url
 
-
 urlpatterns = [
-    url(r'^', include('sentimeter.urls')),
     url(r'^admin/', admin.site.urls),
+    url(r'^$', include('apps.text_analysis_sentiment.urls')),
+    url(r'^text_analysis_sentiment/', include('apps.text_analysis_sentiment.urls')),
+    
 ]
