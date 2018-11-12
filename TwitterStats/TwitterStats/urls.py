@@ -15,11 +15,12 @@ Including another URLconf
 """
 
 from django.contrib import admin
-from django.conf.urls import include, url
+from django.urls import include, path
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^$', include('apps.text_analysis_sentiment.urls')),
-    url(r'^text_analysis_sentiment/', include('apps.text_analysis_sentiment.urls')),
-    
+    path('welcome/', include('apps.index.urls')),
+    path('text_analysis_sentiment/', include('apps.text_analysis_sentiment.urls')),
+    path('admin/', admin.site.urls),
 ]
+
+
