@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load staticfiles %}
+<head>
+	<link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
+	<link rel="stylesheet" href="{% static "css/animate.min.css" %}">
+
+  	<link rel="stylesheet" href="{% static "css/et-line-font.css" %}">
+	<link rel="stylesheet" href="{% static "css/font-awesome.min.css" %}">
+
+  	<link rel="stylesheet" href="{% static "css/vegas.min.css" %}">
+	<link rel="stylesheet" href="{% static "css/style.css" %}">
+
+	<link href='https://fonts.googleapis.com/css?family=Rajdhani:400,500,700' rel='stylesheet' type='text/css'>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css">
+    <style media="screen" type="text/css">
+        body {
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+        main {
+            flex: 1 0 auto;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            $('select').material_select();
+        });
+    </script>{% block header %}{% endblock %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta charset="UTF-8">
+    <title>SentiMeter</title>
+</head>
+<body>
+	<!-- javscript js -->
+	<script src="{% static "js/jquery.js" %}"></script>
+	<script src="{% static "js/bootstrap.min.js" %}"></script>
+	
+	<script src="{% static "js/vegas.min.js" %}"></script>
+	
+	<script src="{% static "js/wow.min.js" %}"></script>
+	<script src="{% static "js/smoothscroll.js" %}"></script>
+	<script src="{% static "js/custom.js" %}"></script>
+<header>
+  
+</header>
+<main>
+    <br>
+    {% block body %}{% endblock %}
+</main>
+
+</body>
+</html>
