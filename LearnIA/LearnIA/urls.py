@@ -17,8 +17,17 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url
 from . import views
+from text.views import text_index
+from text.views import text_graph
+from text.views import graph
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url(r'^$', views.index, name='index')
+    url(r'^welcome/$', views.index, name='index'),
+    url(r'^text/$', text_index, name='index_text'),
+    url(r'^text/graph$', text_graph, name='text_graph'),
+    path('plot/', graph)
+    
 ]
+
+
