@@ -15,8 +15,11 @@ $(document).ready(function() {
         slides: [
             { src: '/static/images/fondo_1.jpg' },
             { src: '/static/images/fondo_2.jpg' },
-            { src: '/static/images/fondo_texto_1.jpg' },
-            { src: '/static/images/fondo_texto_2.jpg' }
+            { src: '/static/images/fondo_3.png' },
+            { src: '/static/images/fondo_4.jpeg' },
+            { src: '/static/images/fondo_5.jpeg' },
+            { src: '/static/images/fondo_7.jpg' },
+            { src: '/static/images/fondo_8.jpg' }
         ],
         timer: false,
         transition: [ 'zoomOut', ]
