@@ -29,17 +29,7 @@
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
-    <script type="text/javascript">
-        jQuery(document).ready(function ($) {
-            $('select').material_select();
-        });
-    </script>{% block header %}{% endblock %}
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta charset="UTF-8">
-    <title>LearnIA</title>
-</head>
-<body>
-	<!-- javscript js -->
+    <!-- javscript js -->
 	<script src="{% static "js/jquery.js" %}"></script>
 	<script src="{% static "js/bootstrap.min.js" %}"></script>
 	
@@ -48,17 +38,18 @@
 	<script src="{% static "js/wow.min.js" %}"></script>
 	<script src="{% static "js/smoothscroll.js" %}"></script>
 	<script src="{% static "js/custom.js" %}"></script>
-	
 	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
-	
-<header>
-  
-</header>
-<main>
-    <br>
-    {% block body %}{% endblock %}
-</main>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta charset="UTF-8">
+    <title>LearnIA</title>
+</head>
+<body>
 
+<header>
+{% block header %}{% endblock %}
+</header>
+
+{% block body %}{% endblock %}
 </body>
 </html>
