@@ -2,7 +2,7 @@ from keras.callbacks import CSVLogger, ModelCheckpoint, EarlyStopping
 from keras.callbacks import ReduceLROnPlateau
 from keras.preprocessing.image import ImageDataGenerator
 
-from image.src.models.cnn import mini_XCEPTION
+from image.src.models.cnn import big_XCEPTION
 from image.src.utils.datasets import DataManager
 from image.src.utils.datasets import split_data
 from image.src.utils.preprocessor import preprocess_input
@@ -10,7 +10,7 @@ from image.src.utils.preprocessor import preprocess_input
 
 # parametros entrenamiento
 batch_size = 32
-num_epochs = 1
+num_epochs = 10000
 input_shape = (64, 64, 1)
 validation_split = .2
 verbose = 1
@@ -29,7 +29,7 @@ data_generator = ImageDataGenerator(
                         horizontal_flip=True)
 
 # model parameters/compilation
-model = mini_XCEPTION(input_shape, num_classes)
+model = big_XCEPTION(input_shape, num_classes)
 model.compile(optimizer='adam', loss='categorical_crossentropy',
               metrics=['accuracy'])
 model.summary()
@@ -45,7 +45,7 @@ for dataset_name in datasets:
     early_stop = EarlyStopping('val_loss', patience=patience)
     reduce_lr = ReduceLROnPlateau('val_loss', factor=0.1,
                                   patience=int(patience/4), verbose=1)
-    trained_models_path = base_path + dataset_name + '_mini_XCEPTION'
+    trained_models_path = base_path + dataset_name + '_big_XCEPTION'
     model_names = trained_models_path + '.{epoch:02d}-{val_acc:.2f}.hdf5'
     model_checkpoint = ModelCheckpoint(model_names, 'val_loss', verbose=1,
                                                     save_best_only=True)

@@ -4,8 +4,6 @@ import cv2
 from keras.models import load_model
 import numpy as np
 
-
-from 
 from image.src.utils.datasets import get_labels
 from image.src.utils.inference import detect_faces
 from image.src.utils.inference import draw_text
