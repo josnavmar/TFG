@@ -49,3 +49,32 @@ $(document).ready(function() {
 
   });
 
+window.addEventListener("load",init);
+
+window.addEventListener("load",load);
+
+function init(){
+    document.getElementById("selectAlgo").addEventListener("change",revisar);
+}
+
+function revisar(){
+    if(document.getElementById("selectAlgo").value=="rf"){
+        document.getElementById("grupParam1").style.display="block";
+        document.getElementById("grupParam2").style.display="none";
+    }else if(document.getElementById("selectAlgo").value=="nb"){
+    	document.getElementById("grupParam1").style.display="none";
+        document.getElementById("grupParam2").style.display="block";
+    }else{
+    	 document.getElementById("grupParam2").style.display="none";
+         document.getElementById("grupParam1").style.display="none";
+    }
+}
+
+function load() { 
+	var el = document.getElementById("text"); 
+	el.addEventListener("click", function(){
+		document.getElementById("grupParam2").style.display="none";
+        document.getElementById("grupParam1").style.display="none";
+	}, false); 
+} 
+

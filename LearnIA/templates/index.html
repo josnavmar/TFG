@@ -1,7 +1,4 @@
-{% extends 'base.html' %} 
-
-
-{% block body %}
+{% extends 'base.html' %} {% block body %}
 <!-- home section -->
 <section id="home">
 	<div class="container">
@@ -9,14 +6,73 @@
 
 			<div class="col-md-12">
 				<div class="home-thumb">
-					<h1 class="wow fadeInUp" style="font-weight: bold;" data-wow-delay="0.8s">Proyecto Machine Learning</h1>
-          			<h3 class="wow fadeInUp" data-wow-delay="0.6s" style="font-weight: bold;"><strong>Seleccione una de las opciones demostracion de </strong>Machine Learning</h3>
-          			<a href="/text/" type="button" class="btn btn-warning">Texto</a>
-        			<a href="/image/" type="button" class="btn btn-warning">Imágenes</a>
+					<h1 class="wow fadeInUp" style="font-weight: bold;"
+						data-wow-delay="0.8s">Learn IA</h1>
+					<h3 class="wow fadeInUp" data-wow-delay="0.6s"
+						style="font-weight: bold;">
+						<strong>Seleccione una de las opciones demostracion de </strong>Machine
+						Learning
+					</h3>
+					<a ref="#" data-toggle="modal" data-target="#modal1" type="button"
+						class="btn btn-warning" id="text">Texto</a> 
+					<a href="/image/" type="button"
+						class="btn btn-warning">Imágenes</a>
 				</div>
 			</div>
 
 		</div>
-	</div>		
+	</div>
 </section>
+
+<!-- modal -->
+
+
+
+<div class="modal fade" id="modal1" tabindex="-1" role="dialog"
+	aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content modal-popup">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h4 class="modal-title">Parámetros Texto</h4>
+			</div>
+			<form action="#" method="post">
+				<div class="form-group row">
+					<label style="color: white; font-family: 'Rajdhani', sans-serif; font-size: 25px; padding-right: 10px;" for="inputState" class="col-xs-2 col-form-label">Algoritmos</label>
+					<div class="col-xs-8">
+						<select id="selectAlgo" class="form-control">
+							<option style="color:black" value="none" selected>Seleccione una opción</option>
+							<option style="color:black" value="rf">Random Forest</option>
+							<option style="color:black" value="nb">Naives Bayes</option>
+						</select>
+					</div>	
+				</div>
+				<div class="form-group row" id="grupParam1">
+					<div class="col-xs-6">
+						<input name="param1" type="text"
+							id="param1" placeholder="Parámetro 1">
+					</div>
+					<div class="col-xs-6">
+						<input name="param2" type="text"
+							id="param2" placeholder="Parámetro 2">
+					</div>	
+				</div>
+				<div class="form-group row" id="grupParam2">
+					<div class="col-xs-6">
+						<input name="param3" type="text" 
+							id="param3" placeholder="Parámetro 3">
+					</div>
+					<div class="col-xs-6">
+						<input name="param4" type="text" class="form-input"
+							id="param4" placeholder="Parámetro 4">
+					</div>	
+				</div>
+
+			</form>
+		</div>
+	</div>
+</div>
 {% endblock %}
