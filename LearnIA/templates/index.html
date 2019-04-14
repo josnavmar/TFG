@@ -1,4 +1,6 @@
-{% extends 'base.html' %} {% block body %}
+	
+{% extends 'base.html' %} 
+{% block body %}
 <!-- home section -->
 <section id="home">
 	<div class="container">
@@ -26,51 +28,157 @@
 
 <!-- modal -->
 
-
+<script src="/static/js/control.js"></script>
 
 <div class="modal fade" id="modal1" tabindex="-1" role="dialog"
 	aria-labelledby="myModalLabel" aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content modal-popup">
 			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal"
+				<button type="button" id="close" class="close" data-dismiss="modal"
 					aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
-				<h4 class="modal-title">Parámetros Texto</h4>
+				<h4 class="modal-title">Algoritmo y Parámetros</h4>
 			</div>
-			<form action="#" method="post">
+			<form action="/text/graph/" method="post">{% csrf_token %}
 				<div class="form-group row">
 					<label style="color: white; font-family: 'Rajdhani', sans-serif; font-size: 25px; padding-right: 10px;" for="inputState" class="col-xs-2 col-form-label">Algoritmos</label>
 					<div class="col-xs-8">
-						<select id="selectAlgo" class="form-control">
+						<select id="selectAlgorit" class="form-control" name="algoritmo">
 							<option style="color:black" value="none" selected>Seleccione una opción</option>
-							<option style="color:black" value="rf">Random Forest</option>
-							<option style="color:black" value="nb">Naives Bayes</option>
+							<option style="color:black" value="Random Forest">Random Forest</option>
+							<option style="color:black" value="Logistic Regression">Logistic Regression</option>
+							<option style="color:black" value="Naives Bayes">Naives Bayes</option>
+							<option style="color:black" value="Modelo Linear SVC">Modelo Linear SVC</option>
 						</select>
 					</div>	
 				</div>
-				<div class="form-group row" id="grupParam1">
-					<div class="col-xs-6">
-						<input name="param1" type="text"
-							id="param1" placeholder="Parámetro 1">
+				<div class="form-group row" id="groupSVC">
+					<div class="col-xs-5">
+						<select id="selectPolarSVC" class="form-control" name="polaridadSVC" >
+							<option style="color:black" selected disabled value="title">Polaridad</option>
+							<option style="color:black" value="3">3</option>
+							<option style="color:black" value="2">2</option>
+						</select>
+					</div>	
+					<div class="col-xs-5">
+						<select id="selectIteracSVC" class="form-control" name="iteracionesSVC">
+							<option style="color:black" selected disabled value="title">Iteraciones</option>
+							<option style="color:black" value=1000>Predeterminado</option>
+							<option style="color:black" value="1500">1500</option>
+							<option style="color:black"  value="2500">2500</option>
+							<option style="color:black"  value="3500">3500</option>
+						</select>
 					</div>
-					<div class="col-xs-6">
-						<input name="param2" type="text"
-							id="param2" placeholder="Parámetro 2">
+				</div>
+				<div class="form-group row" id="groupNB">
+					<div class="col-xs-2">
+					</div>	
+					<div class="col-xs-8">
+						<select id="selectPolarNB" class="form-control" name="polaridadNB" >
+							<option style="color:black" selected disabled value="title">Polaridad</option>
+							<option style="color:black" value="3">3</option>
+							<option style="color:black" value="2">2</option>
+						</select>
 					</div>	
 				</div>
-				<div class="form-group row" id="grupParam2">
-					<div class="col-xs-6">
-						<input name="param3" type="text" 
-							id="param3" placeholder="Parámetro 3">
+				<div class="form-group row" id="groupRF">
+					<div class="col-xs-5">
+						<select id="selectPolarRF" class="form-control" name="polaridadRF" >
+							<option style="color:black" selected disabled value="title">Polaridad</option>
+							<option style="color:black" value="3">3</option>
+							<option style="color:black" value="2">2</option>
+						</select>
+					</div>	
+					<div class="col-xs-5">
+						<select id="selectTreeRF" class="form-control" name="treeRF" >
+							<option style="color:black" selected disabled value="title">Nº árboles</option>
+							<option style="color:black" value="100">Predeterminado</option>
+							<option style="color:black" value="200">200</option>
+							<option style="color:black" value="300">300</option>
+							<option style="color:black" value="500">500</option>
+							<option style="color:black" value="1000">1000</option>
+						</select>
+					</div>	
+					<div class="col-xs-5">
+						<select id="selectMaxDepthRF" class="form-control" name="depthRF" >
+							<option style="color:black" selected disabled value="title">Prof. máxima</option>
+							<option style="color:black" value="2">Predeterminado</option>
+							<option style="color:black" value="32">32</option>
+							<option style="color:black" value="64">64</option>
+							<option style="color:black" value="80">80</option>
+							<option style="color:black" value="100">100</option>						</select>
 					</div>
-					<div class="col-xs-6">
-						<input name="param4" type="text" class="form-input"
-							id="param4" placeholder="Parámetro 4">
+					<div class="col-xs-5">
+						<select id="selectFeatureRF" class="form-control" name="featureRF" >
+							<option style="color:black" selected disabled value="title">Fun. máximas</option>
+							<option style="color:black" value="auto">Predeterminado</option>
+							<option style="color:black" value="sqrt">sqrt</option>
+							<option style="color:black" value="log2">log2</option>
+						</select>
+					</div>	
+					<div class="col-xs-5">
+						<select id="selectSamSplitRF" class="form-control" name="samSplitRF" >
+							<option style="color:black" selected disabled value="title">Muest. necesarias</option>
+							<option style="color:black" value="2">Predeterminado</option>
+							<option style="color:black" value="8">8</option>
+							<option style="color:black" value="10">10</option>
+							<option style="color:black" value="12">12</option>
+						</select>
+					</div>	
+					<div class="col-xs-5">
+						<select id="selectSamLeafRF" class="form-control" name="samLeafRF" >
+							<option style="color:black" selected disabled value="title">Muest. requeridas</option>
+							<option style="color:black" value="1">Predeterminado</option>
+							<option style="color:black" value="8">3</option>
+							<option style="color:black" value="10">4</option>
+							<option style="color:black" value="12">5</option>
+						</select>
 					</div>	
 				</div>
-
+				<div class="form-group row" id="groupLG">
+					<div class="col-xs-5">
+						<select id="selectPolarLG" class="form-control" name="polaridadLG" >
+							<option style="color:black" selected disabled value="title">Polaridad</option>
+							<option style="color:black" value="3">3</option>
+							<option style="color:black" value="2">2</option>
+						</select>
+					</div>	
+					<div class="col-xs-5">
+						<select id="selectParamCLG" class="form-control" name="paramCLG">
+							<option style="color:black" selected disabled value="title">Parámetro C</option>
+							<option style="color:black" value="1.0">Predeterminado</option>
+							<option style="color:black" value="0.001">0.001</option>
+							<option style="color:black"  value="0.01">0.01</option>
+							<option style="color:black"  value="0.1">0.1</option>
+							<option style="color:black"  value="10.0">10</option>
+							<option style="color:black"  value="100.0">100</option>
+						</select>
+					</div>
+				</div>
+				<section id="button-submit">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-12">
+								<div class="home-thumb">
+									<button id="submit" class="btn btn-warning">EJECUTAR</button> 
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section id="button-gen">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-12">
+								<div class="home-thumb">
+									<button id="submit" class="btn btn-warning">COMPARACIÓN GENERAL</button> 
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
 			</form>
 		</div>
 	</div>

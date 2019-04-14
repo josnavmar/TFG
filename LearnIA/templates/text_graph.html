@@ -23,57 +23,65 @@
 	google.charts.setOnLoadCallback(drawStacked);
 
 	function drawStacked() {
-		var data = google.visualization.arrayToDataTable([
-			['Algoritmo', 'Aciertos', 'No aciertos'],
-  		  	['Logistic Regresion', {{ACC_LR}}, {{ERR_LR}}],
-  		  	['Naive Bayes', {{ACC_NB}}, {{ERR_NB}}],
-  		  	['Support Vector Classification', {{ACC_SVC}}, {{ERR_SVC}}],
-  		  	['Random Forest', {{ACC_RF}}, {{ERR_RF}}]
-      	]);
+		var polaridad = {{polaridad}};
+		
+		if(polaridad == 3){
+			var data = google.visualization.arrayToDataTable([
+				['Polaridad', 'Verdaderos', 'Falsos'],
+	  		  	['Positivos', {{TP}}, {{FP}}],
+	  		  	['Neutros', {{TNONE}}, {{FNONE}}], 
+	  		  	['Negativos', {{TN}}, {{FN}}]
+	      	]); 
+		}else{
+			var data = google.visualization.arrayToDataTable([
+				['Polaridad', 'Verdaderos', 'Falsos'],
+	  		  	['Positivos', {{TP}}, {{FP}}],
+	  		  	['Negativos', {{TN}}, {{FN}}]
+	      	]); 
+		}
 		
       	var options = {
-            	title: 'Accuracy y Error',
+            	title: '',
             	chartArea: {width: '50%'},
             	isStacked: true,
+            	backgroundColor: 'transparent',
+          		textStyle: {
+                	color: 'white'
+                },
+                titleTextStyle: {
+                	color: 'white'
+                },
             	hAxis: {
-            		title: '%',
+            		title: '',
               		minValue: 0,
+              		textStyle: {
+                    	color: 'white'
+                    },
+                    titleTextStyle: {
+                    	color: 'white'
+                    }
             	},
             	vAxis: {
-              		title: 'Algoritmos'
-            	}
+              		title: '',
+              		textStyle: {
+                    	color: 'white'
+                    },
+                    titleTextStyle: {
+                    	color: 'white'
+                    }
+            	},
+                legend: {
+                    textStyle: {
+                        color: 'white'
+                    }
+                }
           	};
 		 
-		var data2 = google.visualization.arrayToDataTable([
-			['Algoritmo', 'tasa de verdaderos positivos', 'Ratio de verdaderos negativos'],
-  		  	['Logistic Regresion', {{SEN_LR}}, {{ESP_LR}}],
-  		  	['Naive Bayes', {{SEN_NB}}, {{ESP_NB}}],
-  		  	['Support Vector Classification', {{SEN_SVC}}, {{ESP_SVC}}],
-  		  	['Random Forest', {{SEN_RF}}, {{ESP_RF}}]
-      	]);
-	
-      	var options2 = {
-            	title: 'Sensibilidad y Especifidad',
-            	chartArea: {width: '50%'},
-            	isStacked: true,
-            	hAxis: {
-            		title: '%',
-              		minValue: 0,
-            	},
-            	vAxis: {
-              		title: 'Algoritmos'
-            	}
-          	};
+		
 
       	
       	var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
-      	var chart2 = new google.visualization.BarChart(document.getElementById('chart_div2'));
       	chart.draw(data, options);
-      	chart2.draw(data2, options2);
-      	var chart3 = new google.visualization.BarChart(document.getElementById('chart_div3'));
-      	var chart4 = new google.visualization.BarChart(document.getElementById('chart_div4'));
-      	chart3.draw(data, options);
-      	chart4.draw(data, options);
 	}
 </script>
 
@@ -84,16 +92,11 @@
 
 			<div class="col-md-12">
 				<div class="home-thumb">
-					<h1 class="wow fadeInUp" style="font-weight: bold;" data-wow-delay="0.8s">Análisis de Sentimientos</h1>
-						<div class="col-md-6" id="chart_div" style="height: 250px;">
+					<h1 class="wow fadeInUp" style="font-weight: bold;" data-wow-delay="0.8s">{{title}}</h1>
+						<div class="col-md-12" id="chart_div" style="height: 250px;">
 						</div>
-						<div class="col-md-6" id="chart_div2" style="height: 250px;">					
-						</div>
-						<div class="col-md-6" id="chart_div3" style="margin-top: 10px ;height: 250px;">
-						</div>
-						<div class="col-md-6" id="chart_div4" style=" margin-top: 10px ;height: 250px;">					
-						</div>
-						
+						<a href="/welcome/" type="button" class="btn btn-warning">Demo</a>
+						<a href="/welcome/" type="button" class="btn btn-warning">Volver</a>
 
 				</div>
 			</div>
