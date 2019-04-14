@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+import requests
+import io
+ 
 from nltk.corpus import stopwords
 from string import punctuation
 import pandas as pd
@@ -145,13 +148,18 @@ def comparacion_algoritmos():
     return int(ACC_LR), int(ACC_NB), int(ACC_SVC), int(ACC_RF), int(ERR_LR), int(ERR_NB), int(ERR_SVC), int(ERR_RF), int(SEN_LR), int(SEN_NB), int(SEN_SVC), int(SEN_RF), int(ESP_LR), int(ESP_NB), int(ESP_SVC), int(ESP_RF)
 
 def read_csv(polaridad):
-    dirPathToCsv = 'C:/Users/PC-8888/git/TFG/LearnIA/text/corpus/'
-    
     if(polaridad == 2):
-        result = pd.read_csv(dirPathToCsv + 'corpus_3000.csv' , names=['sentence', 'label'], sep='\t', encoding='latin-1') 
+        
+        url = "https://raw.githubusercontent.com/josnavmar/TFG/master/LearnIA/text/corpus/corpus_3000.csv"
     else:
-        result = pd.read_csv(dirPathToCsv + 'corpus_4500.csv' , names=['sentence', 'label'], sep='\t', encoding='latin-1')
+        url = "https://raw.githubusercontent.com/josnavmar/TFG/master/LearnIA/text/corpus/corpus_4500.csv"
+    
 
+
+
+    s = requests.get(url).content
+    
+    result = pd.read_csv(io.StringIO(s.decode('utf-8')) , names=['sentence', 'label'], sep='\t', encoding='latin-1') 
     return result
 
 def cut_corpus(sentences, polarities):
