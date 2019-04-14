@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*- 
+# -*- coding: utf-8 -*-
 from nltk.corpus import stopwords
 from string import punctuation
 import pandas as pd
@@ -66,12 +66,10 @@ def algoritmo_function(polaridad, iteraciones, algoritmo, numArboles, profMaxima
  
     #ACCURACY Y ERROR
     ACC = ((TP + TN + TNONE)/total)*100
-
     ERR = ((FP + FN + FNONE)/total)*100
     
     #SENSIBILIDAD Y ESPECIFIDAD 
     SEN = (TP/(TP + FN + FNONE))*100
-    
     ESP = (TN/(TN + FP + FNONE))*100
     
     return int(ACC), int(ERR), int(SEN), int(ESP), int(TP), int(FP), int(TN), int(FN), int(TNONE), int(FNONE)

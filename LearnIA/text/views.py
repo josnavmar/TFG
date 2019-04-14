@@ -21,6 +21,7 @@ def graficos(request):
         return render(request, "text_graph.html", {'polaridad':polaridad, 'title':algoritmo, 'ACC':ACC, 'ERR':ERR, 'SEN':SEN, 'ESP':ESP,  'TP':TP, 'FP':FP, 'TN':TN, 'FN':FN, 'TNONE':TNONE, 'FNONE':FNONE})
         
     elif(algoritmo == "Naives Bayes"):
+        parametroC = ""
         numArboles = ""
         profMaxima = ""
         funcMaximas = ""
@@ -34,6 +35,7 @@ def graficos(request):
         return render(request, "text_graph.html", {'polaridad':polaridad, 'title':algoritmo, 'ACC':ACC, 'ERR':ERR, 'SEN':SEN, 'ESP':ESP,  'TP':TP, 'FP':FP, 'TN':TN, 'FN':FN, 'TNONE':TNONE, 'FNONE':FNONE})
         
     elif(algoritmo == "Random Forest"):
+        parametroC = ""
         iteraciones = 0
         polaridad = request.POST['polaridadRF']
         numArboles = request.POST['treeRF']
