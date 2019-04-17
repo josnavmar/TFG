@@ -30,6 +30,7 @@ urlpatterns = [
     url(r'^image/$', image_index, name='image_index'),
     url(r'^text/$', text_index, name='index_text'),
     url(r'^text/graph/$', graficos, name='graficos'),
+    url(r'^text/demo/$', demo_texto, name='demostracion_texto'),
     
 ]
 

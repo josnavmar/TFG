@@ -31,17 +31,51 @@
 	  		  	['Positivos', {{TP}}, {{FP}}],
 	  		  	['Neutros', {{TNONE}}, {{FNONE}}], 
 	  		  	['Negativos', {{TN}}, {{FN}}]
-	      	]); 
+	      	]);
+			
+		
+			var data3 = google.visualization.arrayToDataTable([
+				['Polaridad', ''],
+	  		  	['Positivos', {{SEN_P}}],
+	  		  	['Neutros', {{ESP_NONE}}], 
+	  		  	['Negativos', {{ESP_N}}]
+	      	]);
+			
+			var data4 = google.visualization.arrayToDataTable([
+				['Polaridad', '', { role: 'style' }],
+	  		  	['Positivos', {{NSEN_P}}, 'red'],
+	  		  	['Neutros', {{NESP_NONE}}, 'red'], 
+	  		  	['Negativos', {{NESP_N}}, 'red']
+	      	]);
+			
 		}else{
 			var data = google.visualization.arrayToDataTable([
 				['Polaridad', 'Verdaderos', 'Falsos'],
 	  		  	['Positivos', {{TP}}, {{FP}}],
 	  		  	['Negativos', {{TN}}, {{FN}}]
 	      	]); 
+			
+			var data3 = google.visualization.arrayToDataTable([
+				['Polaridad', ''],
+	  		  	['Positivos', {{SEN_P}}],
+	  		  	['Negativos', {{ESP_N}}]
+	      	]);
+			
+			var data4 = google.visualization.arrayToDataTable([
+				['Polaridad', '', { role: 'style' }],
+	  		  	['Positivos', {{NSEN_P}}, 'red'],
+	  		  	['Negativos', {{NESP_N}}, 'red']
+	      	]);
 		}
 		
+		var data2 = google.visualization.arrayToDataTable([
+			['', ''],
+  		  	['Aciertos', {{ACC}}],
+  		  	['No aciertos', {{ERR}}]
+      	]);
+		
       	var options = {
-            	title: '',
+            	title: 'Verdaderos y Falsos en la Polaridad',
             	chartArea: {width: '50%'},
             	isStacked: true,
             	backgroundColor: 'transparent',
@@ -49,10 +83,12 @@
                 	color: 'white'
                 },
                 titleTextStyle: {
-                	color: 'white'
+                	color: 'white',
+                	fontSize: 12,
+                	bold: true
                 },
             	hAxis: {
-            		title: '',
+            		title: 'Cantidad',
               		minValue: 0,
               		textStyle: {
                     	color: 'white'
@@ -76,12 +112,106 @@
                     }
                 }
           	};
-		 
-		
+      	
+        var options2 = {
+                title: 'Accuracy y Error',
+          		textStyle: {
+                	color: 'white'
+                },
+                titleTextStyle: {
+                	color: 'white',
+                	fontSize: 12,
+                	bold: true
+                },
+                is3D: true,
+                backgroundColor: 'transparent',
+                chartArea: {width: 400, height: 200},
+                legend: {textStyle: {color: 'white'}}
+              };
+        
+        var options3 = {
+      			title: 'Sensibilidad y Especifidad',
+            	chartArea: {width: '50%'},
+            	isStacked: true,
+            	backgroundColor: 'transparent',
+          		textStyle: {
+                	color: 'white'
+                },
+                titleTextStyle: {
+                	color: 'white',
+                	fontSize: 12,
+                	bold: true
+                },
+            	hAxis: {
+            		title: 'Porcentajes (%)',
+              		minValue: 0,
+              		textStyle: {
+                    	color: 'white'
+                    },
+                    titleTextStyle: {
+                    	color: 'white'
+                    }
+            	},
+            	vAxis: {
+              		title: '',
+              		textStyle: {
+                    	color: 'white'
+                    },
+                    titleTextStyle: {
+                    	color: 'white'
+                    }
+            	},
+                legend: {
+               		position: 'none'
+                }
+          	};
+        
+        var options4 = {
+      			title: 'Sensibilidad y Especifidad (FALSOS)',
+            	chartArea: {width: '50%'},
+            	isStacked: true,
+            	backgroundColor: 'transparent',
+          		textStyle: {
+                	color: 'white'
+                },
+                titleTextStyle: {
+                	color: 'white',
+                	fontSize: 12,
+                	bold: true
+                },
+            	hAxis: {
+            		title: '',
+              		minValue: 0,
+              		textStyle: {
+                    	color: 'white'
+                    },
+                    titleTextStyle: {
+                    	color: 'white'
+                    }
+            	},
+            	vAxis: {
+              		title: '',
+              		textStyle: {
+                    	color: 'white'
+                    },
+                    titleTextStyle: {
+                    	color: 'white'
+                    }
+            	},
+                legend: {
+                	position: 'none'
+                }
+          	};
 
       	
       	var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+      	var chart2 = new google.visualization.PieChart(document.getElementById('chart_div2'));
+      	var chart3 = new google.visualization.BarChart(document.getElementById('chart_div3'));
+      	//var chart4 = new google.visualization.BarChart(document.getElementById('chart_div4'));
       	chart.draw(data, options);
+      	chart2.draw(data2, options2);
+    	chart3.draw(data3, options3);
+      	//chart4.draw(data4, options4);
 	}
 </script>
 
@@ -92,16 +222,68 @@
 
 			<div class="col-md-12">
 				<div class="home-thumb">
-					<h1 class="wow fadeInUp" style="font-weight: bold;" data-wow-delay="0.8s">{{title}}</h1>
-						<div class="col-md-12" id="chart_div" style="height: 250px;">
+					<h1 class="wow fadeInUp" style="font-weight: bold;" data-wow-delay="0.8s">{{algoritmo}}</h1>
+						<div class="col-md-12" id="chart_div2" style="height: 250px;">
 						</div>
-						<a href="/welcome/" type="button" class="btn btn-warning">Demo</a>
+						<div class="col-md-6" id="chart_div" style="height: 250px;">
+						</div>
+						<div class="col-md-6" id="chart_div3" style="height: 250px;">
+						</div>
+						<!--  <div class="col-md-6" id="chart_div4" style="height: 250px;">
+						</div> -->
+						<a ref="#" data-toggle="modal" data-target="#modal2" type="button"
+							class="btn btn-warning" id="text">Demo</a> 
 						<a href="/welcome/" type="button" class="btn btn-warning">Volver</a>
-
-				</div>
 			</div>
 
 		</div>
 	</div>		
 </section>
+
+<!-- modal -->
+
+
+<div class="modal fade" id="modal2" tabindex="-1" role="dialog"
+	aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content modal-popup">
+			<div class="modal-header">
+				<button type="button" id="close" class="close" data-dismiss="modal"
+					aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h4 class="modal-title">Demostración</h4>
+			</div>
+			<form action="/text/demo/" method="post">{% csrf_token %}
+				<div class="form-group row">
+					<div class="col-xs-12">
+						<input id="inputDemo" name="inputDemo" style="height:20px; width: 100%; color: white; border: 5px;" placeholder="Introduce una frase para predecir" class="form-control" name="demo"/>	
+					</div>	
+					<input type="hidden" id="polaridad" name="polaridad" value="{{polaridad}}">
+					<input type="hidden" id="parametroC" name="parametroC" value="{{parametroC}}">
+					<input type="hidden" id="numArboles" name="numArboles" value="{{numArboles}}">
+					<input type="hidden" id="profMaxima" name="profMaxima" value="{{profMaxima}}">
+					<input type="hidden" id="funcMaximas" name="funcMaximas" value="{{funcMaximas}}">
+					<input type="hidden" id="muestMaximas" name="muestMaximas" value="{{muestMaximas}}">
+					<input type="hidden" id="muestRequeridas" name="muestRequeridas" value="{{muestRequeridas}}">
+					<input type="hidden" id="iteraciones" name="iteraciones" value="{{iteraciones}}">
+					<input type="hidden" id="algoritmo" name="algoritmo" value="{{algoritmo}}">
+					<h2 class="wow fadeInUp" style="font-weight: bold;" data-wow-delay="0.8s">{{prueba}}</h2>
+					
+				</div>
+				<section id="button-submit">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-12">
+								<div class="home-thumb">
+									<button id="submit" class="btn btn-warning">EJECUTAR</button> 
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+			</form>
+		</div>
+	</div>
+</div>
 {% endblock %}

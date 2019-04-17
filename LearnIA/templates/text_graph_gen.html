@@ -29,6 +29,14 @@
   		  	['Random Forest', {{ACC_RF}}, {{ERR_RF}}]
       	]);
 		
+		var data3 = google.visualization.arrayToDataTable([
+			['Algoritmo', 'Ratio de verdaderos positivos', 'Ratio de verdaderos negativos', 'Ratio de verdaderos neutros'],
+  		  	['Logistic Regresion', {{SEN_LR_P}}, {{ESP_LR_N}},  {{ESP_LR_NONE}}],
+  		  	['Naive Bayes', {{SEN_NB_P}}, {{ESP_NB_N}}, {{ESP_NB_NONE}}],
+  		  	['Support Vector Classification', {{SEN_SVC_P}}, {{ESP_SVC_N}}, {{ESP_SVC_NONE}}],
+  		  	['Random Forest', {{SEN_RF_P}}, {{ESP_RF_N}}, {{ESP_RF_NONE}}]
+      	]);
+		
       	var options = {
             	title: 'Accuracy y Error',
             	chartArea: {width: '50%'},
@@ -41,7 +49,7 @@
                 	color: 'white'
                 },
             	hAxis: {
-            		title: '%',
+            		title: 'Porcentaje (%)',
               		minValue: 0,
               		textStyle: {
                     	color: 'white'
@@ -65,17 +73,9 @@
                     }
                 }
           	};
-		 
-		var data2 = google.visualization.arrayToDataTable([
-			['Algoritmo', 'tasa de verdaderos positivos', 'Ratio de verdaderos negativos'],
-  		  	['Logistic Regresion', {{SEN_LR}}, {{ESP_LR}}],
-  		  	['Naive Bayes', {{SEN_NB}}, {{ESP_NB}}],
-  		  	['Support Vector Classification', {{SEN_SVC}}, {{ESP_SVC}}],
-  		  	['Random Forest', {{SEN_RF}}, {{ESP_RF}}]
-      	]);
-	
-      	var options2 = {
-            	title: 'Sensibilidad y Especifidad',
+      	
+    	var options3 = {
+            	title: 'Sensibilidad y Especifidad (VERDADEROS)',
             	chartArea: {width: '50%'},
             	isStacked: true,
             	backgroundColor: 'transparent',
@@ -86,7 +86,7 @@
                 	color: 'white'
                 },
             	hAxis: {
-            		title: '%',
+            		title: 'Cantidad',
               		minValue: 0,
               		textStyle: {
                     	color: 'white'
@@ -112,9 +112,9 @@
           	};
       	
       	var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
-      	var chart2 = new google.visualization.BarChart(document.getElementById('chart_div2'));
       	chart.draw(data, options);
-      	chart2.draw(data2, options2);
+      	var chart2 = new google.visualization.BarChart(document.getElementById('chart_div2'));
+      	chart2.draw(data3, options3);
 	}
 </script>
 
@@ -126,9 +126,9 @@
 			<div class="col-md-12">
 				<div class="home-thumb">
 					<h1 class="wow fadeInUp" style="font-weight: bold;" data-wow-delay="0.8s">Comparación General de Algoritmos</h1>
-						<div class="col-md-6" id="chart_div" style="height: 250px;">
+						<div class="col-md-12" id="chart_div" style="height: 250px;">
 						</div>
-						<div class="col-md-6" id="chart_div2" style="height: 250px;">					
+						<div class="col-md-12" id="chart_div2" style="height: 250px;">					
 						</div>
 						<a href="/welcome/" type="button" class="btn btn-warning">Volver</a>
 				</div>

@@ -254,9 +254,31 @@ strong {
   border-color: transparent;
 }
 
+::placeholder {
+  color: white;
+  font-weight: bold;
+}
+
+#inputDemo {
+	height: 50px;
+    width: 100%;
+    font: white;
+    color: white;
+    border: solid 5px white;
+}
+
+
 /* modal */
 
 #modal1{
+	background: url('../images/fondo_7.jpg') no-repeat;
+    width: fit-content;
+    height: fit-content;
+	overflow-y: auto;
+	
+}
+
+#modal2{
 	background: url('../images/fondo_7.jpg') no-repeat;
     width: fit-content;
     height: fit-content;
