@@ -1,6 +1,4 @@
-	
-{% extends 'base.html' %} 
-{% block body %}
+{% extends 'base.html' %} {% block body %}
 <!-- home section -->
 <section id="home">
 	<div class="container">
@@ -15,10 +13,11 @@
 						<strong>Seleccione una de las opciones demostracion de </strong><br>Machine
 						Learning
 					</h3>
-					<a ref="#" data-toggle="modal" data-target="#modal1" type="button"
+					<a  data-toggle="modal" data-target="#modal1" type="button"
 						class="btn btn-warning" id="text">Texto</a> 
-					<a href="/image/" type="button"
-						class="btn btn-warning">Imágenes</a>
+						
+					<a  data-toggle="modal" data-target="#modal3" type="button"
+						class="btn btn-warning" id="image">Imágenes</a>
 				</div>
 			</div>
 
@@ -41,119 +40,136 @@
 				</button>
 				<h4 class="modal-title">Algoritmo y Parámetros</h4>
 			</div>
-			<form action="/text/graph/" method="post">{% csrf_token %}
+			<form action="/text/graph/" method="post">
+				{% csrf_token %}
 				<div class="form-group row">
-					<label style="color: white; font-family: 'Rajdhani', sans-serif; font-size: 25px; padding-right: 10px;" for="inputState" class="col-xs-2 col-form-label">Algoritmos</label>
+					<label
+						style="color: white; font-family: 'Rajdhani', sans-serif; font-size: 25px; padding-right: 10px;"
+						for="inputState" class="col-xs-2 col-form-label">Algoritmos</label>
 					<div class="col-xs-8">
 						<select id="selectAlgorit" class="form-control" name="algoritmo">
-							<option style="color:black" value="none" selected>Seleccione una opción</option>
-							<option style="color:black" value="Random Forest">Random Forest</option>
-							<option style="color:black" value="Logistic Regression">Logistic Regression</option>
-							<option style="color:black" value="Naives Bayes">Naives Bayes</option>
-							<option style="color:black" value="Modelo Linear SVC">Modelo Linear SVC</option>
+							<option style="color: black" value="none" selected>Seleccione
+								una opción</option>
+							<option style="color: black" value="Random Forest">Random
+								Forest</option>
+							<option style="color: black" value="Logistic Regression">Logistic
+								Regression</option>
+							<option style="color: black" value="Naives Bayes">Naives
+								Bayes</option>
+							<option style="color: black" value="Modelo Linear SVC">Modelo
+								Linear SVC</option>
 						</select>
-					</div>	
+					</div>
 				</div>
 				<div class="form-group row" id="groupSVC">
 					<div class="col-xs-5">
-						<select id="selectPolarSVC" class="form-control" name="polaridadSVC" >
-							<option style="color:black" selected disabled value="title">Polaridad</option>
-							<option style="color:black" value="3">3</option>
-							<option style="color:black" value="2">2</option>
+						<select id="selectPolarSVC" class="form-control"
+							name="polaridadSVC">
+							<option style="color: black" selected disabled value="title">Polaridad</option>
+							<option style="color: black" value="3">3</option>
+							<option style="color: black" value="2">2</option>
 						</select>
-					</div>	
+					</div>
 					<div class="col-xs-5">
-						<select id="selectIteracSVC" class="form-control" name="iteracionesSVC">
-							<option style="color:black" selected disabled value="title">Iteraciones</option>
-							<option style="color:black" value=1000>Predeterminado</option>
-							<option style="color:black" value="1500">1500</option>
-							<option style="color:black"  value="2500">2500</option>
-							<option style="color:black"  value="3500">3500</option>
+						<select id="selectIteracSVC" class="form-control"
+							name="iteracionesSVC">
+							<option style="color: black" selected disabled value="title">Iteraciones</option>
+							<option style="color: black" value=1000>Predeterminado</option>
+							<option style="color: black" value="1500">1500</option>
+							<option style="color: black" value="2500">2500</option>
+							<option style="color: black" value="3500">3500</option>
 						</select>
 					</div>
 				</div>
 				<div class="form-group row" id="groupNB">
-					<div class="col-xs-2">
-					</div>	
+					<div class="col-xs-2"></div>
 					<div class="col-xs-8">
-						<select id="selectPolarNB" class="form-control" name="polaridadNB" >
-							<option style="color:black" selected disabled value="title">Polaridad</option>
-							<option style="color:black" value="3">3</option>
-							<option style="color:black" value="2">2</option>
+						<select id="selectPolarNB" class="form-control" name="polaridadNB">
+							<option style="color: black" selected disabled value="title">Polaridad</option>
+							<option style="color: black" value="3">3</option>
+							<option style="color: black" value="2">2</option>
 						</select>
-					</div>	
+					</div>
 				</div>
 				<div class="form-group row" id="groupRF">
 					<div class="col-xs-5">
-						<select id="selectPolarRF" class="form-control" name="polaridadRF" >
-							<option style="color:black" selected disabled value="title">Polaridad</option>
-							<option style="color:black" value="3">3</option>
-							<option style="color:black" value="2">2</option>
+						<select id="selectPolarRF" class="form-control" name="polaridadRF">
+							<option style="color: black" selected disabled value="title">Polaridad</option>
+							<option style="color: black" value="3">3</option>
+							<option style="color: black" value="2">2</option>
 						</select>
-					</div>	
-					<div class="col-xs-5">
-						<select id="selectTreeRF" class="form-control" name="treeRF" >
-							<option style="color:black" selected disabled value="title">Nº árboles</option>
-							<option style="color:black" value="100">Predeterminado</option>
-							<option style="color:black" value="200">200</option>
-							<option style="color:black" value="300">300</option>
-							<option style="color:black" value="500">500</option>
-							<option style="color:black" value="1000">1000</option>
-						</select>
-					</div>	
-					<div class="col-xs-5">
-						<select id="selectMaxDepthRF" class="form-control" name="depthRF" >
-							<option style="color:black" selected disabled value="title">Prof. máxima</option>
-							<option style="color:black" value="2">Predeterminado</option>
-							<option style="color:black" value="32">32</option>
-							<option style="color:black" value="64">64</option>
-							<option style="color:black" value="80">80</option>
-							<option style="color:black" value="100">100</option>						</select>
 					</div>
 					<div class="col-xs-5">
-						<select id="selectFeatureRF" class="form-control" name="featureRF" >
-							<option style="color:black" selected disabled value="title">Fun. máximas</option>
-							<option style="color:black" value="auto">Predeterminado</option>
-							<option style="color:black" value="sqrt">sqrt</option>
-							<option style="color:black" value="log2">log2</option>
+						<select id="selectTreeRF" class="form-control" name="treeRF">
+							<option style="color: black" selected disabled value="title">Nº
+								árboles</option>
+							<option style="color: black" value="100">Predeterminado</option>
+							<option style="color: black" value="200">200</option>
+							<option style="color: black" value="300">300</option>
+							<option style="color: black" value="500">500</option>
+							<option style="color: black" value="1000">1000</option>
 						</select>
-					</div>	
+					</div>
 					<div class="col-xs-5">
-						<select id="selectSamSplitRF" class="form-control" name="samSplitRF" >
-							<option style="color:black" selected disabled value="title">Muest. necesarias</option>
-							<option style="color:black" value="2">Predeterminado</option>
-							<option style="color:black" value="8">8</option>
-							<option style="color:black" value="10">10</option>
-							<option style="color:black" value="12">12</option>
+						<select id="selectMaxDepthRF" class="form-control" name="depthRF">
+							<option style="color: black" selected disabled value="title">Prof.
+								máxima</option>
+							<option style="color: black" value="2">Predeterminado</option>
+							<option style="color: black" value="32">32</option>
+							<option style="color: black" value="64">64</option>
+							<option style="color: black" value="80">80</option>
+							<option style="color: black" value="100">100</option>
 						</select>
-					</div>	
+					</div>
 					<div class="col-xs-5">
-						<select id="selectSamLeafRF" class="form-control" name="samLeafRF" >
-							<option style="color:black" selected disabled value="title">Muest. requeridas</option>
-							<option style="color:black" value="1">Predeterminado</option>
-							<option style="color:black" value="8">3</option>
-							<option style="color:black" value="10">4</option>
-							<option style="color:black" value="12">5</option>
+						<select id="selectFeatureRF" class="form-control" name="featureRF">
+							<option style="color: black" selected disabled value="title">Fun.
+								máximas</option>
+							<option style="color: black" value="auto">Predeterminado</option>
+							<option style="color: black" value="sqrt">sqrt</option>
+							<option style="color: black" value="log2">log2</option>
 						</select>
-					</div>	
+					</div>
+					<div class="col-xs-5">
+						<select id="selectSamSplitRF" class="form-control"
+							name="samSplitRF">
+							<option style="color: black" selected disabled value="title">Muest.
+								necesarias</option>
+							<option style="color: black" value="2">Predeterminado</option>
+							<option style="color: black" value="8">8</option>
+							<option style="color: black" value="10">10</option>
+							<option style="color: black" value="12">12</option>
+						</select>
+					</div>
+					<div class="col-xs-5">
+						<select id="selectSamLeafRF" class="form-control" name="samLeafRF">
+							<option style="color: black" selected disabled value="title">Muest.
+								requeridas</option>
+							<option style="color: black" value="1">Predeterminado</option>
+							<option style="color: black" value="8">3</option>
+							<option style="color: black" value="10">4</option>
+							<option style="color: black" value="12">5</option>
+						</select>
+					</div>
 				</div>
 				<div class="form-group row" id="groupLG">
 					<div class="col-xs-5">
-						<select id="selectPolarLG" class="form-control" name="polaridadLG" >
-							<option style="color:black" selected disabled value="title">Polaridad</option>
-							<option style="color:black" value="3">3</option>
-							<option style="color:black" value="2">2</option>
+						<select id="selectPolarLG" class="form-control" name="polaridadLG">
+							<option style="color: black" selected disabled value="title">Polaridad</option>
+							<option style="color: black" value="3">3</option>
+							<option style="color: black" value="2">2</option>
 						</select>
-					</div>	
+					</div>
 					<div class="col-xs-5">
 						<select id="selectParamCLG" class="form-control" name="paramCLG">
-							<option style="color:black" selected disabled value="title">Parámetro C</option>
-							<option style="color:black" value="1.0">Predeterminado</option>
-							<option style="color:black" value="0.001">0.001</option>
-							<option style="color:black"  value="0.01">0.01</option>
-							<option style="color:black"  value="0.1">0.1</option>
-							<option style="color:black"  value="10.0">10</option>
-							<option style="color:black"  value="100.0">100</option>
+							<option style="color: black" selected disabled value="title">Parámetro
+								C</option>
+							<option style="color: black" value="1.0">Predeterminado</option>
+							<option style="color: black" value="0.001">0.001</option>
+							<option style="color: black" value="0.01">0.01</option>
+							<option style="color: black" value="0.1">0.1</option>
+							<option style="color: black" value="10.0">10</option>
+							<option style="color: black" value="100.0">100</option>
 						</select>
 					</div>
 				</div>
@@ -162,7 +178,7 @@
 						<div class="row">
 							<div class="col-md-12">
 								<div class="home-thumb">
-									<button id="submit" class="btn btn-warning">EJECUTAR</button> 
+									<button id="submit" class="btn btn-warning">EJECUTAR</button>
 								</div>
 							</div>
 						</div>
@@ -173,7 +189,8 @@
 						<div class="row">
 							<div class="col-md-12">
 								<div class="home-thumb">
-									<button id="submit" class="btn btn-warning">COMPARACIÓN GENERAL</button> 
+									<button id="submit" class="btn btn-warning">COMPARACIÓN
+										GENERAL</button>
 								</div>
 							</div>
 						</div>
@@ -183,4 +200,226 @@
 		</div>
 	</div>
 </div>
+
+<!-- modal 3 -->
+
+<script src="/static/js/control_image.js"></script>
+
+<div class="modal fade" id="modal3" tabindex="-1" role="dialog"
+	aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content modal-popup">
+			<div class="modal-header">
+				<button type="button" id="close" class="close" data-dismiss="modal"
+					aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h4 class="modal-title">Red Neuronal y Parámetros</h4>
+			</div>
+			<form action="/image/graph/" method="post">
+				{% csrf_token %}
+				<div class="form-group row">
+					<label
+						style="color: white; font-family: 'Rajdhani', sans-serif; font-size: 25px; padding-right: 10px;"
+						for="inputState" class="col-xs-2 col-form-label">Sentimiento/Género</label>
+					<br> <br>
+					<div class="col-xs-8">
+						<select id="selectSentGen" class="form-control" name="SentGen">
+							<option style="color: black" value="none" selected>Seleccione
+								una opción</option>
+							<option style="color: black" value="Sentimiento">Sentimiento</option>
+							<option style="color: black" value="Genero">Género</option>
+						</select>
+					</div>
+				</div>
+				<div class="form-group row" id="groupSent">
+					<div class="col-xs-5">
+						<select id="selectRedSent" class="form-control" name="redSent">
+							<option style="color: black" selected disabled value="title">Red
+								Neuronal</option>
+							<option style="color: black" value="Simple CNN">Simple
+								CNN</option>
+							<option style="color: black" value="Mini XCEPTION CNN">Mini
+								XCEPTION CNN</option>
+							<option style="color: black" value="Big XCEPTION CNN">Big
+								XCEPTION CNN</option>
+						</select>
+					</div>
+					<div class="col-xs-5">
+						<select id="selectIterSent" class="form-control"
+							name="iteraccionSent">
+							<option style="color: black" selected disabled value="title">Iteracciones</option>
+							<option style="color: black" value="20">25</option>
+							<option style="color: black" value="50">50</option>
+							<option style="color: black" value="100">100</option>
+						</select>
+					</div>
+					<div class="col-xs-5">
+						<select id="selectOptimSent" class="form-control"
+							name="optimizadorSent">
+							<option style="color: black" selected disabled value="title">Optimizadores</option>
+							<option style="color: black" value=SGD>SGD</option>
+							<option style="color: black" value="RMSprop">RMSprop</option>
+							<option style="color: black" value="Adam">Adam</option>
+						</select>
+					</div>
+
+				</div>
+				<div class="form-group row" id="groupGen">
+					<div class="col-xs-5">
+						<select id="selectRedGen" class="form-control" name="redGen">
+							<option style="color: black" selected disabled value="title">Red
+								Neuronal</option>
+							<option style="color: black" value="Simple CNN">Simple
+								CNN</option>
+							<option style="color: black" value="Mini XCEPTION CNN">Mini
+								XCEPTION CNN</option>
+							<option style="color: black" value="Big XCEPTION CNN">Big
+								XCEPTION CNN</option>
+						</select>
+					</div>
+					<div class="col-xs-5">
+						<select id="selectIterGen" class="form-control"
+							name="iteraccionGen">
+							<option style="color: black" selected disabled value="title">Iteracciones</option>
+							<option style="color: black" value="20">25</option>
+							<option style="color: black" value="50">50</option>
+							<option style="color: black" value="100">100</option>
+						</select>
+					</div>
+					<div class="col-xs-5">
+						<select id="selectOptimGen" class="form-control"
+							name="optimizadorGen">
+							<option style="color: black" selected disabled value="title">Optimizadores</option>
+							<option style="color: black" value=SGD>SGD</option>
+							<option style="color: black" value="RMSprop">RMSprop</option>
+							<option style="color: black" value="Adam">Adam</option>
+						</select>
+					</div>
+				</div>
+				<section id="button-submit-2">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-12">
+								<div class="home-thumb">
+									<button id="submit2" class="btn btn-warning">EJECUTAR</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+			</form>
+		</div>
+	</div>
+</div>
+
 {% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
