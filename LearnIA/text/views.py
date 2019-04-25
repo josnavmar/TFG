@@ -15,7 +15,7 @@ def graficos(request):
         muestMaximas = ""
         muestRequeridas = ""
         iteraciones = request.POST['iteracionesSVC']
-        polaridad = request.POST['polaridadSVC']
+        polaridad = int(request.POST['polaridadSVC'])
         
         ACC, ERR, SEN_P, ESP_N, ESP_NONE, NSEN_P, NESP_N, NESP_NONE, TP, FP, TN, FN, TNONE, FNONE = algoritmo_function(polaridad, iteraciones, algoritmo, numArboles, profMaxima, funcMaximas, muestMaximas, muestRequeridas, parametroC)
         return render(request, "text_graph.html", {'polaridad':polaridad, 'algoritmo':algoritmo,
@@ -39,7 +39,7 @@ def graficos(request):
         muestMaximas = ""
         muestRequeridas = ""
         iteraciones = 0
-        polaridad = request.POST['polaridadNB']
+        polaridad = int(request.POST['polaridadNB'])
         
         ACC, ERR, SEN_P, ESP_N, ESP_NONE, NSEN_P, NESP_N, NESP_NONE, TP, FP, TN, FN, TNONE, FNONE = algoritmo_function(polaridad, iteraciones, algoritmo, numArboles, profMaxima, funcMaximas, muestMaximas, muestRequeridas, parametroC)
         return render(request, "text_graph.html", {'polaridad':polaridad, 'algoritmo':algoritmo,
@@ -58,7 +58,7 @@ def graficos(request):
     elif(algoritmo == "Random Forest"):
         parametroC = ""
         iteraciones = 0
-        polaridad = request.POST['polaridadRF']
+        polaridad = int(request.POST['polaridadRF'])
         numArboles = request.POST['treeRF']
         profMaxima = request.POST['depthRF']
         funcMaximas = request.POST['featureRF']
@@ -86,7 +86,7 @@ def graficos(request):
         muestMaximas = ""
         muestRequeridas = ""
         iteraciones = 0
-        polaridad = request.POST['polaridadLG']
+        polaridad = int(request.POST['polaridadLG'])
         parametroC = request.POST['paramCLG']
         
         ACC, ERR, SEN_P, ESP_N, ESP_NONE, NSEN_P, NESP_N, NESP_NONE, TP, FP, TN, FN, TNONE, FNONE = algoritmo_function(polaridad, iteraciones, algoritmo, numArboles, profMaxima, funcMaximas, muestMaximas, muestRequeridas, parametroC)
@@ -119,7 +119,7 @@ def demo_texto(request):
     frase = request.POST['inputDemo']
     algoritmo = request.POST['algoritmo']
     iteraciones = request.POST['iteraciones']
-    polaridad = request.POST['polaridad']
+    polaridad = int(request.POST['polaridad'])
     numArboles = request.POST['numArboles']
     profMaxima = request.POST['profMaxima']
     funcMaximas = request.POST['funcMaximas']

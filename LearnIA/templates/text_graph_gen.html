@@ -22,7 +22,7 @@
 	google.charts.setOnLoadCallback(drawStacked);
 	function drawStacked() {
 		var data = google.visualization.arrayToDataTable([
-			['Algoritmo', 'Aciertos', 'No aciertos'],
+			['Algoritmo', '', ''],
   		  	['Logistic Regresion', {{ACC_LR}}, {{ERR_LR}}],
   		  	['Naive Bayes', {{ACC_NB}}, {{ERR_NB}}],
   		  	['Support Vector Classification', {{ACC_SVC}}, {{ERR_SVC}}],
@@ -67,15 +67,13 @@
                     	color: 'white'
                     }
             	},
-                legend: {
-                    textStyle: {
-                        color: 'white'
-                    }
-                }
+            	 legend: {
+                		position: 'none'
+                 }
           	};
       	
     	var options3 = {
-            	title: 'Sensibilidad y Especifidad (VERDADEROS)',
+            	title: 'Sensibilidad y Especifidad',
             	chartArea: {width: '50%'},
             	isStacked: true,
             	backgroundColor: 'transparent',

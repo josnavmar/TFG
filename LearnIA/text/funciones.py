@@ -63,7 +63,7 @@ def algoritmo_function(polaridad, iteraciones, algoritmo, numArboles, profMaxima
         classifier.fit(xtrain, polarity_train)
         pred = classifier.predict(xtest)
 
-    TP, FP, TN, FN, TNONE, FNONE = perf_measure(polarity_test, pred, int(polaridad))
+    TP, FP, TN, FN, TNONE, FNONE = perf_measure(polarity_test, pred, polaridad)
         
     total= TP + FP + TN + FN+ TNONE + FNONE
  
@@ -231,7 +231,7 @@ def demostracion(frase, algoritmo, polaridad,
 
 def read_csv(polaridad):
     
-    if(polaridad == '2'):
+    if(polaridad == 2):
         url = "https://raw.githubusercontent.com/josnavmar/TFG/master/LearnIA/text/corpus/corpus_3000.csv"
     else:
         url = "https://raw.githubusercontent.com/josnavmar/TFG/master/LearnIA/text/corpus/corpus_4500.csv"
