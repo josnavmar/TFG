@@ -230,8 +230,8 @@ def demostracion(frase, algoritmo, polaridad,
     return frase, prediccion
 
 def read_csv(polaridad):
-    if(polaridad == 2):
-        
+    
+    if(polaridad == '2'):
         url = "https://raw.githubusercontent.com/josnavmar/TFG/master/LearnIA/text/corpus/corpus_3000.csv"
     else:
         url = "https://raw.githubusercontent.com/josnavmar/TFG/master/LearnIA/text/corpus/corpus_4500.csv"
