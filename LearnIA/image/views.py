@@ -81,7 +81,8 @@ def image_upload(request):
             prediccion_text = desgeneraliza(emotion_text)
             
         elif(sentgen == 'Genero'):
-            path = '/image/trained_models/gender_models/'
+            path = '/image/trained_models/emotion_models/'
+            model = 'fer2013_big_XCEPTION.58-0.66.hdf5'
             emotion_text, gender_text = demostracion(uploaded_file_url, model, path, sentgen)
             prediccion_text = gender_text
         else:

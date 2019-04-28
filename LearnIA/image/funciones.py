@@ -4,7 +4,7 @@ import cv2
 from keras.models import load_model
 import numpy as np
 from django import forms
-from LearnIA.settings import BASE_DIR
+from LearnIA.settings import BASE_DIR, BASE_DIR_RE
 
 from image.src.utils.datasets import get_labels
 from image.src.utils.inference import detect_faces
@@ -1077,10 +1077,9 @@ def demostracion(pathfile, model, pathmodel, sentgen):
     
     emotion_text=''
     gender_text=''
-    ruta = BASE_DIR
-    BASE_DIR_RE = ruta.replace("\n", "/")
     
     print(BASE_DIR_RE)
+    print(BASE_DIR_RE+pathmodel+model)
     
     # parametros cargar imagenes dataset
     image_path =BASE_DIR_RE+pathfile
@@ -1099,6 +1098,7 @@ def demostracion(pathfile, model, pathmodel, sentgen):
         
     # carga de los modelos
     face_detection = load_detection_model(detection_model_path)
+    
     emotion_classifier = load_model(emotion_model_path, compile=False)
     gender_classifier = load_model(gender_model_path, compile=False)
         
