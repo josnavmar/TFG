@@ -14,10 +14,10 @@ from image.src.utils.inference import load_image
 from image.src.utils.preprocessor import preprocess_input
 
 # parametros cargar imagenes dataset
-image_path = '../images/impresion-cara.jpg'
-detection_model_path = '../trained_models/detection_models/haarcascade_frontalface_default.xml'
-emotion_model_path = '../trained_models/emotion_models/fer2013_mini_XCEPTION.102-0.66.hdf5'
-gender_model_path = '../trained_models/gender_models/simple_CNN.81-0.96.hdf5'
+image_path = '../images/triste2.jpg'
+detection_model_path = 'C:/Users/JCRN/git/TFG/LearnIA/image/trained_models/detection_models/haarcascade_frontalface_default.xml'
+emotion_model_path = 'C:/Users/JCRN/git/TFG/LearnIA/image/trained_models/emotion_models/fer2013_big_XCEPTION.58-0.66.hdf5'
+gender_model_path = 'C:/Users/JCRN/git/TFG/LearnIA/image/trained_models/gender_mini_XCEPTION.02-0.93(rmsprop).hdf5'
 emotion_labels = get_labels('fer2013')
 gender_labels = get_labels('imdb')
 font = cv2.FONT_HERSHEY_SIMPLEX

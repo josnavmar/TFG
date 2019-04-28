@@ -115,8 +115,8 @@ def get_labels(dataset_name):
 
 def get_class_to_arg(dataset_name='fer2013'):
     if dataset_name == 'fer2013':
-        return {'Enfadado': 0, 'Asqueado': 1, 'Miedoso': 2, 'Feliz': 3, 'Triste': 4,
-                'Sorprendido': 5, 'Neutral': 6}
+        return {'Enfado': 0, 'Asco': 1, 'Miedo': 2, 'Felicidad': 3, 'Tristeza': 4,
+                'Sorpresa': 5, 'Neutral': 6}
     elif dataset_name == 'imdb':
         return {'Mujer': 0, 'Hombre': 1}
     elif dataset_name == 'KDEF':

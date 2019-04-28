@@ -17,7 +17,7 @@ from sklearn.metrics import confusion_matrix
 
 #EMOTIONS
 class_names_emotion = ["Enfadado", "Asqueado", "Miedoso", "Feliz", "Triste", "Sorprendido", "Neutral"]
-emotion_model_path = '../trained_models/emotion_models/fer2013_mini_XCEPTION.107-0.66.hdf5'
+emotion_model_path = '../trained_models/emotion_models/fer2013_simple_CNN(adam,acc).13-0.54.hdf5'
 emotion_classifier = load_model(emotion_model_path, compile=False)
 dataset_emotion = 'fer2013'
 input_shape = (64, 64, 1)
@@ -70,7 +70,7 @@ train_faces, train_emotions = train_data
 x_test, y_test = val_data
 
 y_pred = emotion_classifier.predict(x_test)
-y_pred = y_pred > 0.5
+#y_pred = y_pred > 0.5
 
 cnf_matrix = confusion_matrix(y_test.argmax(axis=1), y_pred.argmax(axis=1))
 np.set_printoptions(precision=2)
@@ -78,11 +78,13 @@ np.set_printoptions(precision=2)
 # Plot non-normalized confusion matrix about emotions
 plt.figure()
 plot_confusion_matrix(cnf_matrix, classes=class_names_emotion,
-                      title='Confusion matrix about emotions, without normalization')
+                     title='Confusion matrix about emotions, without normalization')
 
 # Plot normalized confusion matrix about emotions
 plt.figure()
 plot_confusion_matrix(cnf_matrix, classes=class_names_emotion, normalize=True,
-                      title='Normalized confusion matrix about emotions')
+                     title='Normalized confusion matrix about emotions')
+
 
 plt.show()
+

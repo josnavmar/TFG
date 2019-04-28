@@ -30,8 +30,8 @@ data_generator = ImageDataGenerator(
 
 # model parameters/compilation
 model = big_XCEPTION(input_shape, num_classes)
-model.compile(optimizer='adam', loss='categorical_crossentropy',
-              metrics=['accuracy'])
+model.compile(optimizer='rmsprop', loss='categorical_crossentropy',
+              metrics=['acc'])
 model.summary()
 
 
@@ -45,7 +45,7 @@ for dataset_name in datasets:
     early_stop = EarlyStopping('val_loss', patience=patience)
     reduce_lr = ReduceLROnPlateau('val_loss', factor=0.1,
                                   patience=int(patience/4), verbose=1)
-    trained_models_path = base_path + dataset_name + '_big_XCEPTION'
+    trained_models_path = base_path + dataset_name + '_big_XCEPTION(rmsprop,acc)'
     model_names = trained_models_path + '.{epoch:02d}-{val_acc:.2f}.hdf5'
     model_checkpoint = ModelCheckpoint(model_names, 'val_loss', verbose=1,
                                                     save_best_only=True)

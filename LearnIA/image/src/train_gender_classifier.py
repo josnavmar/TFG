@@ -1,7 +1,7 @@
 from keras.callbacks import CSVLogger, ModelCheckpoint, EarlyStopping
 from keras.callbacks import ReduceLROnPlateau
 from image.src.utils.datasets import DataManager
-from image.src.models.cnn import mini_XCEPTION
+from image.src.models.cnn import simple_CNN
 from image.src.utils.data_augmentation import ImageGenerator
 from image.src.utils.datasets import split_imdb_data
 
@@ -18,7 +18,7 @@ if input_shape[2] == 1:
     grayscale = True
 images_path = '../datasets/imdb_crop/imdb_crop/'
 log_file_path = '../trained_models/gender_models/gender_training.log'
-trained_models_path = '../trained_models/gender_models/gender_mini_XCEPTION'
+trained_models_path = '../trained_models/gender_models/gender_Simple_CNN'
 
 # carga dataset
 data_loader = DataManager(dataset_name)
@@ -35,8 +35,8 @@ image_generator = ImageGenerator(ground_truth_data, batch_size,
                                  do_random_crop=do_random_crop)
 
 # model parameters/compilation
-model = mini_XCEPTION(input_shape, num_classes)
-model.compile(optimizer='adam',
+model = simple_CNN(input_shape, num_classes)
+model.compile(optimizer='rmsprop',
               loss='categorical_crossentropy',
               metrics=['accuracy'])
 model.summary()
@@ -46,7 +46,7 @@ early_stop = EarlyStopping('val_loss', patience=patience)
 reduce_lr = ReduceLROnPlateau('val_loss', factor=0.1,
                               patience=int(patience/2), verbose=1)
 csv_logger = CSVLogger(log_file_path, append=False)
-model_names = trained_models_path + '.{epoch:02d}-{val_acc:.2f}.hdf5'
+model_names = trained_models_path + '.{epoch:02d}-{val_acc:.2f}(rmsprop).hdf5'
 model_checkpoint = ModelCheckpoint(model_names,
                                    monitor='val_loss',
                                    verbose=1,

@@ -329,6 +329,14 @@ strong {
 	
 }
 
+#modal4{
+	background: url('../images/fondo_7.jpg') no-repeat;
+    width: fit-content;
+    height: fit-content;
+	overflow-y: auto;
+	
+}
+
 .modal::-webkit-scrollbar {
     width: 0.2em;
 }

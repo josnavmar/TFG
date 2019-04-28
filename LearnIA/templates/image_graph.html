@@ -1,0 +1,314 @@
+{% extends 'base.html' %} {% block body %}
+<!-- preloader section -->
+<section class="preloader">
+	<div class="sk-circle">
+		<div class="sk-circle1 sk-child"></div>
+		<div class="sk-circle2 sk-child"></div>
+		<div class="sk-circle3 sk-child"></div>
+		<div class="sk-circle4 sk-child"></div>
+		<div class="sk-circle5 sk-child"></div>
+		<div class="sk-circle6 sk-child"></div>
+		<div class="sk-circle7 sk-child"></div>
+		<div class="sk-circle8 sk-child"></div>
+		<div class="sk-circle9 sk-child"></div>
+		<div class="sk-circle10 sk-child"></div>
+		<div class="sk-circle11 sk-child"></div>
+		<div class="sk-circle12 sk-child"></div>
+	</div>
+</section>
+
+<script type="text/javascript">
+
+	google.charts.load('current', {packages: ['corechart', 'bar']});
+	google.charts.setOnLoadCallback(drawStacked);
+
+	function drawStacked() {
+		var opcion = '{{title}}';
+		
+		if(opcion == 'Sentimiento'){
+			var data = google.visualization.arrayToDataTable([
+				['Sentimiento', 'Verdaderos', 'Falsos'],
+	  		  	['Enfado', {{AFE}}, {{FFE}}],
+	  		  	['Asco', {{AAS}}, {{FAS}}], 
+	  		  	['Miedo', {{AMI}}, {{FMI}}],
+				['Felicidad', {{AFE}}, {{FFE}}],
+				['Tristeza', {{ATR}}, {{FTR}}],
+				['Sorpresa', {{ASO}}, {{FSO}}],
+				['Neutral', {{ANE}}, {{FNE}}]
+	      	]);
+			
+		
+			var data3 = google.visualization.arrayToDataTable([
+				['Sentimiento', ''],
+	  		  	['Enfado', {{ESP_EN}}],
+	  		  	['Asco', {{ESP_AS}}], 
+	  		  	['Miedo', {{ESP_MI}}],
+	  		  	['Felicidad', {{SEN_FE}}],
+	  			['Tristeza', {{ESP_TR}}],
+	  			['Sorpresa', {{ESP_SO}}],
+	  			['Neutral', {{ESP_NE}}]
+				
+	      	]);
+			
+			
+		}else{
+			var data = google.visualization.arrayToDataTable([
+				['Genero', 'Verdaderos', 'Falsos'],
+	  		  	['Masculino', {{AMA}}, {{FMA}}],
+	  		  	['Femenino', {{AFEM}}, {{FFEM}}]
+	      	]); 
+			
+			var data3 = google.visualization.arrayToDataTable([
+				['Genero', ''],
+	  		  	['Masculino', {{SEN_MA}}],
+	  		  	['Femenino', {{ESP_FEM}}]
+	      	]);
+			
+		}
+		
+		var data2 = google.visualization.arrayToDataTable([
+			['', ''],
+  		  	['Aciertos', {{ACC}}],
+  		  	['No aciertos', {{ERR}}]
+      	]);
+		
+      	var options = {
+            	title: 'Verdaderos y Falsos en el {{title}}',
+            	chartArea: {width: '50%'},
+            	isStacked: true,
+            	backgroundColor: 'transparent',
+          		textStyle: {
+                	color: 'white'
+                },
+                titleTextStyle: {
+                	color: 'white',
+                	fontSize: 12,
+                	bold: true
+                },
+            	hAxis: {
+            		title: 'Cantidad',
+              		minValue: 0,
+              		textStyle: {
+                    	color: 'white'
+                    },
+                    titleTextStyle: {
+                    	color: 'white'
+                    }
+            	},
+            	vAxis: {
+              		title: '',
+              		textStyle: {
+                    	color: 'white'
+                    },
+                    titleTextStyle: {
+                    	color: 'white'
+                    }
+            	},
+                legend: {
+                    textStyle: {
+                        color: 'white'
+                    }
+                }
+          	};
+      	
+        var options2 = {
+                title: 'Accuracy y Error',
+          		textStyle: {
+                	color: 'white'
+                },
+                titleTextStyle: {
+                	color: 'white',
+                	fontSize: 12,
+                	bold: true
+                },
+                is3D: true,
+                backgroundColor: 'transparent',
+                chartArea: {width: 400, height: 200},
+                legend: {textStyle: {color: 'white'}}
+              };
+        
+        var options3 = {
+      			title: 'Sensibilidad y Especifidad',
+            	chartArea: {width: '50%'},
+            	isStacked: true,
+            	backgroundColor: 'transparent',
+          		textStyle: {
+                	color: 'white'
+                },
+                titleTextStyle: {
+                	color: 'white',
+                	fontSize: 12,
+                	bold: true
+                },
+            	hAxis: {
+            		title: 'Porcentajes (%)',
+              		minValue: 0,
+              		textStyle: {
+                    	color: 'white'
+                    },
+                    titleTextStyle: {
+                    	color: 'white'
+                    }
+            	},
+            	vAxis: {
+              		title: '',
+              		textStyle: {
+                    	color: 'white'
+                    },
+                    titleTextStyle: {
+                    	color: 'white'
+                    }
+            	},
+                legend: {
+               		position: 'none'
+                }
+          	};
+        
+        var options4 = {
+      			title: 'Sensibilidad y Especifidad (FALSOS)',
+            	chartArea: {width: '50%'},
+            	isStacked: true,
+            	backgroundColor: 'transparent',
+          		textStyle: {
+                	color: 'white'
+                },
+                titleTextStyle: {
+                	color: 'white',
+                	fontSize: 12,
+                	bold: true
+                },
+            	hAxis: {
+            		title: '',
+              		minValue: 0,
+              		textStyle: {
+                    	color: 'white'
+                    },
+                    titleTextStyle: {
+                    	color: 'white'
+                    }
+            	},
+            	vAxis: {
+              		title: '',
+              		textStyle: {
+                    	color: 'white'
+                    },
+                    titleTextStyle: {
+                    	color: 'white'
+                    }
+            	},
+                legend: {
+                	position: 'none'
+                }
+          	};
+
+      	
+      	var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+      	var chart2 = new google.visualization.PieChart(document.getElementById('chart_div2'));
+      	var chart3 = new google.visualization.BarChart(document.getElementById('chart_div3'));
+      	chart.draw(data, options);
+      	chart2.draw(data2, options2);
+    	chart3.draw(data3, options3);
+	}
+</script>
+<script>
+var _validFileExtensions = [".jpg", ".jpeg", ".png"];    
+function ValidateSingleInput(oInput) {
+	
+	if (oInput.type == "file") {
+        var sFileName = oInput.value;
+         if (sFileName.length > 0) {
+            var blnValid = false;
+            for (var j = 0; j < _validFileExtensions.length; j++) {
+                var sCurExtension = _validFileExtensions[j];
+                if (sFileName.substr(sFileName.length - sCurExtension.length, sCurExtension.length).toLowerCase() == sCurExtension.toLowerCase()) {
+                    blnValid = true;
+                    break;
+                }
+            }
+             
+            if (!blnValid) {
+                alert("La extensión del archivo no es correcta, debería ser: " + _validFileExtensions.join(", "));
+                oInput.value = "";
+                return false;
+            }
+        }
+    }
+    return true;
+}
+
+function ValidateSubmit(){
+	
+	if( document.getElementById("inputDemo").files.length == 0 ){
+		var blnValid = true; 
+		alert("Debe de cargar una imagen")
+		return false;
+	}else{
+		return true;
+	}
+}
+
+</script>
+
+<!-- home section -->
+<section id="home">
+	<div class="container">
+		<div class="row">
+
+			<div class="col-md-12">
+				<div class="home-thumb">
+					<h1 class="wow fadeInUp" style="font-weight: bold;" data-wow-delay="0.8s">{{title}}-{{red}}</h1>
+						<div class="col-md-12" id="chart_div2" style="height: 250px;">
+						</div>
+						<div class="col-md-6" id="chart_div" style="height: 250px;">
+						</div>
+						<div class="col-md-6" id="chart_div3" style="height: 250px;">
+						</div>
+						<a ref="#" data-toggle="modal" data-target="#modal4" type="button"
+							class="btn btn-warning" id="text">Demo</a> 
+						<a href="/welcome/" type="button" class="btn btn-warning">Volver</a>
+			</div>
+
+		</div>
+	</div>		
+</section>
+
+<!-- modal -->
+
+
+<div class="modal fade" id="modal4" tabindex="-1" role="dialog"
+	aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content modal-popup">
+			<div class="modal-header">
+				<button type="button" id="close" class="close" data-dismiss="modal"
+					aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h4 class="modal-title">Demostración</h4>
+			</div>
+			<form action="/image/upload/" method="post" onsubmit="return ValidateSubmit()" enctype="multipart/form-data">{% csrf_token %}
+				<div class="form-group row">
+					
+					<div class="col-xs-12">
+						<input id="inputDemo" name="inputDemo" onchange="ValidateSingleInput(this);" placeholder="Introduzca una imagen" class="form-control" name="demo" type="file"/>	
+					</div>	
+					<input type="hidden" id="model" name="model" value="{{model}}">
+					<input type="hidden" id="sentgen" name="sentgen" value="{{title}}">
+					
+				</div>
+				<section id="button-submit">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-12">
+								<div class="home-thumb">
+									<button id="submit" class="btn btn-warning">EJECUTAR</button> 
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+			</form>
+		</div>
+	</div>
+</div>
+{% endblock %}
