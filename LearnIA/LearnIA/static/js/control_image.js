@@ -55,7 +55,7 @@ function revisar2() {
 		document.getElementById("groupSent").style.display = "none";
 		document.getElementById("groupGen").style.display = "block";
 
-		document.getElementById("button-submit").style.display = "none";
+		document.getElementById("button-submit-2").style.display = "none";
 
 		document.getElementById("selectIterSent").value = "title";
 		document.getElementById("selectOptimSent").value = "title";
@@ -69,7 +69,7 @@ function revisar2() {
 		document.getElementById("groupSent").style.display = "none";
 		document.getElementById("groupGen").style.display = "none";
 
-		document.getElementById("button-submit").style.display = "none";
+		document.getElementById("button-submit-2").style.display = "none";
 
 		document.getElementById("selectIterSent").value = "title";
 		document.getElementById("selectOptimSent").value = "title";
@@ -88,7 +88,7 @@ function load2() {
 		document.getElementById("groupSent").style.display = "none";
 		document.getElementById("groupGen").style.display = "none";
 
-		document.getElementById("button-submit").style.display = "none";
+		document.getElementById("button-submit-2").style.display = "none";
 
 		document.getElementById("selectSentGen").value = "none";
 
@@ -111,17 +111,17 @@ function loadSubmitRevisar2() {
 			&& document.getElementById("selectRedSent").value != "title"
 			&& document.getElementById("selectSentGen").value == "Sentimiento") {
 
-		document.getElementById("button-submit").style.display = "block";
+		document.getElementById("button-submit-2").style.display = "block";
 
 	} else if (document.getElementById("selectIterGen").value != "title"
 			&& document.getElementById("selectOptimGen").value != "title"
 			&& document.getElementById("selectRedGen").value != "title"
 			&& document.getElementById("selectSentGen").value == "Genero") {
 
-		document.getElementById("button-submit").style.display = "block";
+		document.getElementById("button-submit-2").style.display = "block";
 
 	} else {
-		document.getElementById("button-submit").style.display = "none";
+		document.getElementById("button-submit-2").style.display = "none";
 
 	}
 }
