@@ -218,6 +218,16 @@ function ValidateSingleInput(oInput) {
         var sFileName = oInput.value;
          if (sFileName.length > 0) {
             var blnValid = false;
+         
+            if(sFileName.indexOf('%') != -1){
+
+            	 alert("El nombre del archivo contiene caracteres no validos");
+            	 var blnValid = false;
+            	 document.getElementById("inputDemo").value = null;
+            	 document.getElementById('submit').disabled=false;
+            	 return false;
+            	}
+            
             for (var j = 0; j < _validFileExtensions.length; j++) {
                 var sCurExtension = _validFileExtensions[j];
                 if (sFileName.substr(sFileName.length - sCurExtension.length, sCurExtension.length).toLowerCase() == sCurExtension.toLowerCase()) {
@@ -229,6 +239,8 @@ function ValidateSingleInput(oInput) {
             if (!blnValid) {
                 alert("La extensión del archivo no es correcta, debería ser: " + _validFileExtensions.join(", "));
                 oInput.value = "";
+                document.getElementById("inputDemo").value = null;
+                document.getElementById('submit').disabled=false;
                 return false;
             }
         }
@@ -241,6 +253,7 @@ function ValidateSubmit(){
 	if( document.getElementById("inputDemo").files.length == 0 ){
 		var blnValid = true; 
 		alert("Debe de cargar una imagen")
+		document.getElementById('submit').disabled=false;
 		return false;
 	}else{
 		return true;
@@ -269,7 +282,7 @@ function ValidateSubmit(){
 			</div>
 
 		</div>
-	</div>		
+	</div>
 </section>
 
 <!-- modal -->
@@ -301,7 +314,7 @@ function ValidateSubmit(){
 						<div class="row">
 							<div class="col-md-12">
 								<div class="home-thumb">
-									<button id="submit" class="btn btn-warning">EJECUTAR</button> 
+									<button id="submit" onsubmit="document.getElementById('submit').disabled=true;" class="btn btn-warning">EJECUTAR</button> 
 								</div>
 							</div>
 						</div>
