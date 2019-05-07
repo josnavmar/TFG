@@ -242,6 +242,7 @@
 
 <!-- modal -->
 
+<script src="/static/js/control2.js"></script>
 
 <div class="modal fade" id="modal2" tabindex="-1" role="dialog"
 	aria-labelledby="myModalLabel" aria-hidden="true">
@@ -257,7 +258,7 @@
 			<form action="/text/demo/" method="post">{% csrf_token %}
 				<div class="form-group row">
 					<div class="col-xs-12">
-						<input id="inputDemo" name="inputDemo" style="height:20px; width: 100%; color: white; border: 5px;" placeholder="Introduce una frase para predecir" class="form-control" name="demo"/>	
+						<textarea id="inputDemo" name="inputDemo" style="height:150px; width: 85%; color: white;" placeholder="Introduce una frase para predecir" class="form-control" name="demo"/></textarea>	
 					</div>	
 					<input type="hidden" id="polaridad" name="polaridad" value="{{polaridad}}">
 					<input type="hidden" id="parametroC" name="parametroC" value="{{parametroC}}">
@@ -271,12 +272,12 @@
 					<h2 class="wow fadeInUp" style="font-weight: bold;" data-wow-delay="0.8s">{{prueba}}</h2>
 					
 				</div>
-				<section id="button-submit">
+				<section id="button-demo">
 					<div class="container">
 						<div class="row">
 							<div class="col-md-12">
 								<div class="home-thumb">
-									<button  data-toggle="modal" title="Pulse aquí para ejecutar una demostración del algoritmo seleccionada con la configuración elegida anteriormente." id="submit" class="btn btn-warning">EJECUTAR</button> 
+									<button data-toggle="modal" title="Pulse aquí para ejecutar una demostración del algoritmo seleccionada con la configuración elegida anteriormente." id="submit" class="btn btn-warning">EJECUTAR</button> 
 								</div>
 							</div>
 						</div>

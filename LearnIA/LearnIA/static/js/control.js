@@ -175,6 +175,7 @@ function load() {
 		document.getElementById("groupLG").style.display="none";
 		
         document.getElementById("button-submit").style.display="none";
+        document.getElementById("button-gen").style.display="block";
         
         document.getElementById("selectAlgorit").value = "none";
         
@@ -192,6 +193,20 @@ function load() {
         
         document.getElementById("selectPolarLG").value = "title";
         document.getElementById("selectParamCLG").value = "title";
+        
+	}, false);
+	
+	var botonCompaGen = document.getElementById("button-gen"); 
+	botonCompaGen.addEventListener("click", function(){
+		$('#modal1').hide();
+		
+        
+	}, false); 
+	
+	var botonSubmit = document.getElementById("button-submit"); 
+	botonSubmit.addEventListener("click", function(){
+		$('#modal1').hide();
+		
         
 	}, false); 
 } 

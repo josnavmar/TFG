@@ -145,6 +145,13 @@ function load2() {
 
 
 	}, false);
+	
+	var botonSubmit = document.getElementById("button-submit-2"); 
+	botonSubmit.addEventListener("click", function(){
+		$('#modal3').hide();
+		
+        
+	}, false); 
 }
 
 function loadSubmitRevisar2() {
