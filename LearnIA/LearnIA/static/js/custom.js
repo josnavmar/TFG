@@ -1,5 +1,10 @@
  /* jQuery Pre loader
   -----------------------------------------------*/
+
+$(document).ready(function(){
+  $('[data-toggle="modal"]').tooltip(); 
+});
+
 $(window).load(function(){
     $('.preloader').fadeOut(2000); // set duration in brackets    
 });

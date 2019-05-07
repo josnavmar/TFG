@@ -13,10 +13,11 @@
 						<strong>Seleccione una de las opciones demostracion de </strong><br>Machine
 						Learning
 					</h3>
+					
 					<a  data-toggle="modal" data-target="#modal1" type="button"
-						class="btn btn-warning" id="text">Texto</a> 
+						class="btn btn-warning" title="Pulse aquí para iniciar proceso de estudio con Machine Learning en textos" id="text">Texto</a> 
 						
-					<a  data-toggle="modal" data-target="#modal3" type="button"
+					<a  data-toggle="modal" data-target="#modal3" title="Pulse aquí para iniciar proceso de estudio con Machine Learning en imágenes" type="button"
 						class="btn btn-warning" id="image">Imágenes</a>
 				</div>
 			</div>
@@ -62,115 +63,209 @@
 					</div>
 				</div>
 				<div class="form-group row" id="groupSVC">
-					<div class="col-xs-5">
-						<select id="selectPolarSVC" class="form-control"
-							name="polaridadSVC">
-							<option style="color: black" selected disabled value="title">Polaridad</option>
-							<option style="color: black" value="3">3</option>
-							<option style="color: black" value="2">2</option>
-						</select>
+				
+					<div class="col-xs-12" style="padding-bottom: 20px;">
+						<p class="modal-title">Basado en SVM que son métodos de aprendizaje supervisado que se utilizan para la clasificación, regresión y detección de valores atípicos. Linear SVC es una implementación de la Clasificación de vectores de soporte para el caso de un kernel lineal</p>
 					</div>
-					<div class="col-xs-5">
-						<select id="selectIteracSVC" class="form-control"
-							name="iteracionesSVC">
-							<option style="color: black" selected disabled value="title">Iteraciones</option>
-							<option style="color: black" value=1000>Predeterminado</option>
-							<option style="color: black" value="1500">1500</option>
-							<option style="color: black" value="2500">2500</option>
-							<option style="color: black" value="3500">3500</option>
-						</select>
+					<div class="col-xs-12">
+						<div class="col-xs-3" style="width: 50px; margin-left: 100px;">
+		       				<a data-toggle="modal" class="my-btn" title="Determina en cuanto se divide el documento analizado, (2) Positivo y Negativo. (3) Positivo, Neutro y Negativo" href="#">
+		         				<span class="glyphicon glyphicon-info-sign"></span>
+		       				</a>
+	      				</div>	
+	      				
+						<div class="col-xs-6">
+							<select id="selectPolarSVC" style="margin-left: 0px;" class="form-control"
+								name="polaridadSVC">
+								<option style="color: black" selected disabled value="title">Polaridad</option>
+								<option style="color: black" value="3">3</option>
+								<option style="color: black" value="2">2</option>
+							</select>
+						</div>
 					</div>
-				</div>
+					<div class="col-xs-12">
+						<div class="col-xs-3" style="width: 50px; margin-left: 100px;">
+		       				<a data-toggle="modal" class="my-btn" title="Determnina el número máximo de iteraciones a ejecutar." href="#">
+		         				<span class="glyphicon glyphicon-info-sign"></span>
+		       				</a>
+	      				</div>	
+	      				
+						<div class="col-xs-6">
+							<select id="selectIteracSVC" style="margin-left: 0px;" class="form-control"
+								name="iteracionesSVC">
+								<option style="color: black" selected disabled value="title">Iteraciones</option>
+								<option style="color: black" value=1000>Predeterminado</option>
+								<option style="color: black" value="1500">1500</option>
+								<option style="color: black" value="2500">2500</option>
+								<option style="color: black" value="3500">3500</option>
+							</select>
+						</div>
+					</div>
+				</div>	
 				<div class="form-group row" id="groupNB">
-					<div class="col-xs-2"></div>
-					<div class="col-xs-8">
-						<select id="selectPolarNB" class="form-control" name="polaridadNB">
-							<option style="color: black" selected disabled value="title">Polaridad</option>
-							<option style="color: black" value="3">3</option>
-							<option style="color: black" value="2">2</option>
-						</select>
+					<div class="col-xs-12" style="padding-bottom: 20px;">
+						<p class="modal-title">Técnica de clasificación y predicción que construye modelos que predicen la probabilidad de posibles resultados. Naive Bayes utiliza datos históricos para encontrar asociaciones y relaciones y hacer predicciones</p>
+					</div>
+					<div class="col-xs-12">
+						<div class="col-xs-3" style="width: 50px; margin-left: 100px;">
+		       				<a data-toggle="modal" class="my-btn" title="Determina en cuanto se divide el documento analizado, (2) Positivo y Negativo. (3) Positivo, Neutro y Negativo" href="#">
+		         				<span class="glyphicon glyphicon-info-sign"></span>
+		       				</a>
+	      				</div>	
+						<div class="col-xs-6">
+							<select id="selectPolarNB" style="margin-left: 0px;" class="form-control" name="polaridadNB">
+								<option style="color: black" selected disabled value="title">Polaridad</option>
+								<option style="color: black" value="3">3</option>
+								<option style="color: black" value="2">2</option>
+							</select>
+						</div>
 					</div>
 				</div>
 				<div class="form-group row" id="groupRF">
-					<div class="col-xs-5">
-						<select id="selectPolarRF" class="form-control" name="polaridadRF">
-							<option style="color: black" selected disabled value="title">Polaridad</option>
-							<option style="color: black" value="3">3</option>
-							<option style="color: black" value="2">2</option>
-						</select>
+					<div class="col-xs-12" style="padding-bottom: 20px;">
+						<p class="modal-title">Combinación de árboles predictores tal que cada árbol depende de los valores de un vector aleatorio probado independientemente y con la misma distribución para cada uno de estos.</p>
 					</div>
-					<div class="col-xs-5">
-						<select id="selectTreeRF" class="form-control" name="treeRF">
-							<option style="color: black" selected disabled value="title">Nº
-								árboles</option>
-							<option style="color: black" value="100">Predeterminado</option>
-							<option style="color: black" value="200">200</option>
-							<option style="color: black" value="300">300</option>
-							<option style="color: black" value="500">500</option>
-							<option style="color: black" value="1000">1000</option>
-						</select>
+
+					<div class="col-xs-12">
+						<div class="col-xs-3" style="width: 50px; margin-left: 100px;">
+	       					<a data-toggle="modal" class="my-btn" title="Determina en cuanto se divide el documento analizado, (2) Positivo y Negativo. (3) Positivo, Neutro y Negativo" href="#">
+		         				<span class="glyphicon glyphicon-info-sign"></span>
+		       				</a>
+	      				</div>	
+						<div class="col-xs-6">
+							<select id="selectPolarRF" style="margin-left: 0px;" class="form-control" name="polaridadRF">
+								<option style="color: black" selected disabled value="title">Polaridad</option>
+								<option style="color: black" value="3">3</option>
+								<option style="color: black" value="2">2</option>
+							</select>
+						</div>
+					</div>	
+					<div class="col-xs-12">
+						<div class="col-xs-3" style="width: 50px; margin-left: 100px;">
+	       					<a data-toggle="modal" class="my-btn" title="Número de árboles utilizados, por lo general mientras mayor es el número, mejor para aprender los datos." href="#">
+		         				<span class="glyphicon glyphicon-info-sign"></span>
+		       				</a>
+	      				</div>	
+						<div class="col-xs-6">
+							<select id="selectTreeRF" style="margin-left: 0px;" class="form-control" name="treeRF">
+								<option style="color: black" selected disabled value="title">Nº
+									árboles</option>
+								<option style="color: black" value="100">Predeterminado</option>
+								<option style="color: black" value="200">200</option>
+								<option style="color: black" value="300">300</option>
+								<option style="color: black" value="500">500</option>
+								<option style="color: black" value="1000">1000</option>
+							</select>
+						</div>
+					</div>	
+					<div class="col-xs-12">
+						<div class="col-xs-3" style="width: 50px; margin-left: 100px;">
+	       					<a data-toggle="modal" class="my-btn" title="Representa la profundidad de cada árbol en el bosque. Cuanto más profundo es el árbol, más divisiones tiene y captura más información sobre los datos." href="#">
+		         				<span class="glyphicon glyphicon-info-sign"></span>
+		       				</a>
+	      				</div>	
+						<div class="col-xs-6">
+							<select id="selectMaxDepthRF" style="margin-left: 0px;" class="form-control" name="depthRF">
+								<option style="color: black" selected disabled value="title">Prof.
+									máxima</option>
+								<option style="color: black" value="2">Predeterminado</option>
+								<option style="color: black" value="32">32</option>
+								<option style="color: black" value="64">64</option>
+								<option style="color: black" value="80">80</option>
+								<option style="color: black" value="100">100</option>
+							</select>
+						</div>
 					</div>
-					<div class="col-xs-5">
-						<select id="selectMaxDepthRF" class="form-control" name="depthRF">
-							<option style="color: black" selected disabled value="title">Prof.
-								máxima</option>
-							<option style="color: black" value="2">Predeterminado</option>
-							<option style="color: black" value="32">32</option>
-							<option style="color: black" value="64">64</option>
-							<option style="color: black" value="80">80</option>
-							<option style="color: black" value="100">100</option>
-						</select>
+					<div class="col-xs-12">
+						<div class="col-xs-3" style="width: 50px; margin-left: 100px;">
+	       					<a data-toggle="modal" class="my-btn" title="Cantidad de características a considerar cuando se busca la mejor división. (sqrt)=sqrt (nº caracteriísticas). (log2)=log2(nº caracteriísticas)." href="#">
+		         				<span class="glyphicon glyphicon-info-sign"></span>
+		       				</a>
+	      				</div>	
+						<div class="col-xs-6">
+							<select id="selectFeatureRF" style="margin-left: 0px;" class="form-control" name="featureRF">
+								<option style="color: black" selected disabled value="title">Fun.
+									máximas</option>
+								<option style="color: black" value="auto">Predeterminado</option>
+								<option style="color: black" value="sqrt">sqrt</option>
+								<option style="color: black" value="log2">log2</option>
+							</select>
+						</div>
 					</div>
-					<div class="col-xs-5">
-						<select id="selectFeatureRF" class="form-control" name="featureRF">
-							<option style="color: black" selected disabled value="title">Fun.
-								máximas</option>
-							<option style="color: black" value="auto">Predeterminado</option>
-							<option style="color: black" value="sqrt">sqrt</option>
-							<option style="color: black" value="log2">log2</option>
-						</select>
+					<div class="col-xs-12">
+						<div class="col-xs-3" style="width: 50px; margin-left: 100px;">
+	       					<a data-toggle="modal" class="my-btn" title="Número mínimo de muestras necesarias para dividir un nodo interno." href="#">
+		         				<span class="glyphicon glyphicon-info-sign"></span>
+		       				</a>
+	      				</div>	
+						<div class="col-xs-6">
+							<select id="selectSamSplitRF" style="margin-left: 0px;" class="form-control"
+								name="samSplitRF">
+								<option style="color: black" selected disabled value="title">Muest.
+									necesarias</option>
+								<option style="color: black" value="2">Predeterminado</option>
+								<option style="color: black" value="8">8</option>
+								<option style="color: black" value="10">10</option>
+								<option style="color: black" value="12">12</option>
+							</select>
+						</div>
 					</div>
-					<div class="col-xs-5">
-						<select id="selectSamSplitRF" class="form-control"
-							name="samSplitRF">
-							<option style="color: black" selected disabled value="title">Muest.
-								necesarias</option>
-							<option style="color: black" value="2">Predeterminado</option>
-							<option style="color: black" value="8">8</option>
-							<option style="color: black" value="10">10</option>
-							<option style="color: black" value="12">12</option>
-						</select>
-					</div>
-					<div class="col-xs-5">
-						<select id="selectSamLeafRF" class="form-control" name="samLeafRF">
-							<option style="color: black" selected disabled value="title">Muest.
-								requeridas</option>
-							<option style="color: black" value="1">Predeterminado</option>
-							<option style="color: black" value="8">3</option>
-							<option style="color: black" value="10">4</option>
-							<option style="color: black" value="12">5</option>
-						</select>
+					<div class="col-xs-12">
+						<div class="col-xs-3" style="width: 50px; margin-left: 100px;">
+	       					<a data-toggle="modal" class="my-btn" title="Número mínimo de muestras requeridas para estar en un nodo." href="#">
+		         				<span class="glyphicon glyphicon-info-sign"></span>
+		       				</a>
+	      				</div>	
+						<div class="col-xs-6">
+							<select id="selectSamLeafRF" style="margin-left: 0px;" class="form-control" name="samLeafRF">
+								<option style="color: black" selected disabled value="title">Muest.
+									requeridas</option>
+								<option style="color: black" value="1">Predeterminado</option>
+								<option style="color: black" value="8">3</option>
+								<option style="color: black" value="10">4</option>
+								<option style="color: black" value="12">5</option>
+							</select>
+						</div>
 					</div>
 				</div>
 				<div class="form-group row" id="groupLG">
-					<div class="col-xs-5">
-						<select id="selectPolarLG" class="form-control" name="polaridadLG">
-							<option style="color: black" selected disabled value="title">Polaridad</option>
-							<option style="color: black" value="3">3</option>
-							<option style="color: black" value="2">2</option>
-						</select>
+					<div class="col-xs-12" style="padding-bottom: 20px;">
+						<p class="modal-title">Es un tipo de análisis de regresión utilizado para predecir el resultado de una variable categórica (una variable que puede adoptar un número limitado de categorías) en función de las variables independientes o predictoras.</p>
 					</div>
-					<div class="col-xs-5">
-						<select id="selectParamCLG" class="form-control" name="paramCLG">
-							<option style="color: black" selected disabled value="title">Parámetro
-								C</option>
-							<option style="color: black" value="1.0">Predeterminado</option>
-							<option style="color: black" value="0.001">0.001</option>
-							<option style="color: black" value="0.01">0.01</option>
-							<option style="color: black" value="0.1">0.1</option>
-							<option style="color: black" value="10.0">10</option>
-							<option style="color: black" value="100.0">100</option>
-						</select>
+
+					<div class="col-xs-12">
+						<div class="col-xs-3" style="width: 50px; margin-left: 100px;">
+	       					<a data-toggle="modal" class="my-btn" title="Determina en cuanto se divide el documento analizado, (2) Positivo y Negativo. (3) Positivo, Neutro y Negativo" href="#">
+		         				<span class="glyphicon glyphicon-info-sign"></span>
+		       				</a>
+	      				</div>	
+						<div class="col-xs-6">
+							<select id="selectPolarLG" style="margin-left: 0px;" class="form-control" name="polaridadLG">
+								<option style="color: black" selected disabled value="title" >Polaridad</option>
+								<option style="color: black" value="3" title="Combinación de árboles predictores tal que cada árbol depende de los valores de un vector aleatorio probado indepen Combinación de árboles predictores tal que cada árbol depende de los valores de un vector aleatorio probado indepen">3</option>
+								<option style="color: black" value="2">2</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="col-xs-12">
+						<div class="col-xs-3" style="width: 50px; margin-left: 100px;">
+	       					<a data-toggle="modal" class="my-btn" title="Determina en cuanto se divide el documento analizado, (2) Positivo y Negativo. (3) Positivo, Neutro y Negativo" href="#">
+		         				<span class="glyphicon glyphicon-info-sign"></span>
+		       				</a>
+	      				</div>	
+						<div class="col-xs-6">
+							<select id="selectParamCLG" style="margin-left: 0px;" class="form-control" name="paramCLG">
+								<option style="color: black" selected disabled value="title">Parámetro
+									C</option>
+								<option style="color: black" value="1.0">Predeterminado</option>
+								<option style="color: black" value="0.001">0.001</option>
+								<option style="color: black" value="0.01">0.01</option>
+								<option style="color: black" value="0.1">0.1</option>
+								<option style="color: black" value="10.0">10</option>
+								<option style="color: black" value="100.0">100</option>
+							</select>
+						</div>
 					</div>
 				</div>
 				<section id="button-submit">
@@ -178,7 +273,7 @@
 						<div class="row">
 							<div class="col-md-12">
 								<div class="home-thumb">
-									<button id="submit" class="btn btn-warning">EJECUTAR</button>
+									<button data-toggle="modal" title="Pulse aquí para ejecutar un análisis estadístico del algoritmo seleccionada con la configuración elegida." id="submit" class="btn btn-warning">EJECUTAR</button>
 								</div>
 							</div>
 						</div>
@@ -189,7 +284,7 @@
 						<div class="row">
 							<div class="col-md-12">
 								<div class="home-thumb">
-									<button id="submit" class="btn btn-warning">COMPARACIÓN
+									<button data-toggle="modal" title="Pulse aquí para ver una comparativa global predeterminada entre los distintos algortimos." id="submit" class="btn btn-warning">COMPARACIÓN
 										GENERAL</button>
 								</div>
 							</div>
@@ -223,7 +318,7 @@
 						style="color: white; font-family: 'Rajdhani', sans-serif; font-size: 25px; padding-right: 10px;"
 						for="inputState" class="col-xs-2 col-form-label">Sentimiento/Género</label>
 					<br> <br>
-					<div class="col-xs-8">
+					<div class="col-xs-9">
 						<select id="selectSentGen" class="form-control" name="SentGen">
 							<option style="color: black" value="none" selected>Seleccione
 								una opción</option>
@@ -233,7 +328,7 @@
 					</div>
 				</div>
 				<div class="form-group row" id="groupSent">
-					<div class="col-xs-5">
+					<div class="col-xs-9">
 						<select id="selectRedSent" class="form-control" name="redSent">
 							<option style="color: black" selected disabled value="title">Red
 								Neuronal</option>
@@ -245,16 +340,12 @@
 								XCEPTION CNN</option>
 						</select>
 					</div>
-					<div class="col-xs-5">
-						<select id="selectIterSent" class="form-control"
-							name="iteraccionSent">
-							<option style="color: black" selected disabled value="title">Iteracciones</option>
-							<option style="color: black" value="25">25</option>
-							<option style="color: black" value="50">50</option>
-							<option style="color: black" value="100">100</option>
-						</select>
+					<div class="col-xs-9" style="margin-left: 75px;">
+						<p id="simpleCNNSent" class="modal-title">Combinación1 de árboles predictores aaaaaaaaaaaa aa aaaaaaaa aaaa aaaaaa aa  aaaaaaaaa aaa aaaaaaaaa.</p>
+						<p id="miniXCNNSent" class="modal-title">Combinación2 de árboles predictores.</p>
+						<p id="bigXCNNSent" class="modal-title">Combinación3 de árboles predictores.</p>
 					</div>
-					<div class="col-xs-5">
+					<div class="col-xs-9" style="padding-top: 10px;">
 						<select id="selectOptimSent" class="form-control"
 							name="optimizadorSent">
 							<option style="color: black" selected disabled value="title">Optimizadores</option>
@@ -263,10 +354,31 @@
 							<option style="color: black" value="Adam">Adam</option>
 						</select>
 					</div>
-
+					<div class="col-xs-9" style="margin-left: 75px;">
+						<p id="sgdSent" class="modal-title">Combinación1 de árboles predictores aaaaaaaaaaaa aa aaaaaaaa aaaa aaaaaa aa  aaaaaaaaa aaa aaaaaaaaa.</p>
+						<p id="rmsPropSent" class="modal-title">Combinación2 de árboles predictores.</p>
+						<p id="adamSent" class="modal-title">Combinación3 de árboles predictores.</p>
+					</div>
+					<div class="col-xs-12" style="padding-top: 10px;">
+						<div class="col-xs-3" style="width: 50px; margin-left: 100px;">
+		       				<a data-toggle="modal" class="my-btn" title="Determnina el número máximo de iteraciones a ejecutar." href="#">
+		         				<span class="glyphicon glyphicon-info-sign"></span>
+		       				</a>
+	      				</div>	
+	      				
+						<div class="col-xs-6">
+							<select id="selectIterSent" style="margin-left: 0px;" class="form-control"
+								name="iteraccionSent">
+								<option style="color: black" selected disabled value="title">Iteraciones</option>
+								<option style="color: black" value="25">25</option>
+								<option style="color: black" value="50">50</option>
+								<option style="color: black" value="100">100</option>
+							</select>
+						</div>
+					</div>
 				</div>
 				<div class="form-group row" id="groupGen">
-					<div class="col-xs-5">
+					<div class="col-xs-9">
 						<select id="selectRedGen" class="form-control" name="redGen">
 							<option style="color: black" selected disabled value="title">Red
 								Neuronal</option>
@@ -278,16 +390,12 @@
 								XCEPTION CNN</option>
 						</select>
 					</div>
-					<div class="col-xs-5">
-						<select id="selectIterGen" class="form-control"
-							name="iteraccionGen">
-							<option style="color: black" selected disabled value="title">Iteracciones</option>
-							<option style="color: black" value="25">25</option>
-							<option style="color: black" value="50">50</option>
-							<option style="color: black" value="100">100</option>
-						</select>
+					<div class="col-xs-9" style="margin-left: 75px;">
+						<p id="simpleCNNGen" class="modal-title">Combinación1 de árboles predictores aaaaaaaaaaaa aa aaaaaaaa aaaa aaaaaa aa  aaaaaaaaa aaa aaaaaaaaa.</p>
+						<p id="miniXCNNGen" class="modal-title">Combinación2 de árboles predictores.</p>
+						<p id="bigXCNNGen" class="modal-title">Combinación3 de árboles predictores.</p>
 					</div>
-					<div class="col-xs-5">
+					<div class="col-xs-9" style="padding-top: 10px;">
 						<select id="selectOptimGen" class="form-control"
 							name="optimizadorGen">
 							<option style="color: black" selected disabled value="title">Optimizadores</option>
@@ -295,6 +403,28 @@
 							<option style="color: black" value="RMSprop">RMSprop</option>
 							<option style="color: black" value="Adam">Adam</option>
 						</select>
+					</div>
+					<div class="col-xs-9" style="margin-left: 75px;">
+						<p id="sgdGen" class="modal-title">Combinación1 de árboles predictores aaaaaaaaaaaa aa aaaaaaaa aaaa aaaaaa aa  aaaaaaaaa aaa aaaaaaaaa.</p>
+						<p id="rmsPropGen" class="modal-title">Combinación2 de árboles predictores.</p>
+						<p id="adamGen" class="modal-title">Combinación3 de árboles predictores.</p>
+					</div>
+					<div class="col-xs-12" style="padding-top: 10px;">
+						<div class="col-xs-3" style="width: 50px; margin-left: 100px;">
+		       				<a data-toggle="modal" class="my-btn" title="Determnina el número máximo de iteraciones a ejecutar." href="#">
+		         				<span class="glyphicon glyphicon-info-sign"></span>
+		       				</a>
+	      				</div>	
+	      				
+						<div class="col-xs-6">
+							<select id="selectIterGen" style="margin-left: 0px;" class="form-control"
+								name="iteraccionGen">
+								<option style="color: black" selected disabled value="title">Iteracciones</option>
+								<option style="color: black" value="25">25</option>
+								<option style="color: black" value="50">50</option>
+								<option style="color: black" value="100">100</option>
+							</select>
+						</div>
 					</div>
 				</div>
 				<section id="button-submit-2">
@@ -314,112 +444,3 @@
 </div>
 
 {% endblock %}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -3,6 +3,14 @@ body {
    	
 }
 
+.my-btn {
+	color: white;
+}
+
+.tooltip {
+	width: 150px;
+}
+
 .modal-title{
 	font-family: 'Rajdhani', sans-serif;
 	color: white;
