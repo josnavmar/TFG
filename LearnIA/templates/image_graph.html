@@ -210,57 +210,7 @@
     	chart3.draw(data3, options3);
 	}
 </script>
-<script>
-var _validFileExtensions = [".jpg", ".jpeg", ".png"];    
-function ValidateSingleInput(oInput) {
-	
-	if (oInput.type == "file") {
-        var sFileName = oInput.value;
-         if (sFileName.length > 0) {
-            var blnValid = false;
-         
-            if(sFileName.indexOf('%') != -1){
 
-            	 alert("El nombre del archivo contiene caracteres no validos");
-            	 var blnValid = false;
-            	 document.getElementById("inputDemo").value = null;
-            	 document.getElementById('submit').disabled=false;
-            	 return false;
-            	}
-            
-            for (var j = 0; j < _validFileExtensions.length; j++) {
-                var sCurExtension = _validFileExtensions[j];
-                if (sFileName.substr(sFileName.length - sCurExtension.length, sCurExtension.length).toLowerCase() == sCurExtension.toLowerCase()) {
-                    blnValid = true;
-                    break;
-                }
-            }
-             
-            if (!blnValid) {
-                alert("La extensión del archivo no es correcta, debería ser: " + _validFileExtensions.join(", "));
-                oInput.value = "";
-                document.getElementById("inputDemo").value = null;
-                document.getElementById('submit').disabled=false;
-                return false;
-            }
-        }
-    }
-    return true;
-}
-
-function ValidateSubmit(){
-	
-	if( document.getElementById("inputDemo").files.length == 0 ){
-		var blnValid = true; 
-		alert("Debe de cargar una imagen")
-		document.getElementById('submit').disabled=false;
-		return false;
-	}else{
-		return true;
-	}
-}
-
-</script>
 
 <!-- home section -->
 <section id="home">
@@ -279,8 +229,8 @@ function ValidateSubmit(){
 						<a ref="#" data-toggle="modal" title="Pulse aquí para ver una demostración con la configuración elegida anteriormente." data-target="#modal4" type="button"
 							class="btn btn-warning" id="text">Demo</a> 
 						<a href="/welcome/" type="button" class="btn btn-warning">Volver</a>
+				</div>
 			</div>
-
 		</div>
 	</div>
 </section>
@@ -293,22 +243,25 @@ function ValidateSubmit(){
 	<div class="modal-dialog">
 		<div class="modal-content modal-popup">
 			<div class="modal-header">
-				<button type="button" id="close" class="close" data-dismiss="modal"
+				<button type="button" onclick="cerrar();" id="close" class="close" data-dismiss="modal"
 					aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
 				<h4 class="modal-title">Demostración</h4>
 			</div>
-			<form action="/image/upload/" method="post" onsubmit="return ValidateSubmit()" enctype="multipart/form-data">{% csrf_token %}
+			<form action="/image/upload/" method="post" enctype="multipart/form-data">{% csrf_token %}
 				<div class="form-group row">
 					
 					<div class="col-xs-12">
-						<input id="inputDemo" name="inputDemo" onchange="ValidateSingleInput(this);" placeholder="Introduzca una imagen" class="form-control" name="demo" type="file"/>	
+						<input id="inputDemo" name="inputDemo" placeholder="Introduzca una imagen" class="form-control" name="demo" type="file"/>	
 					</div>	
 					<input type="hidden" id="model" name="model" value="{{model}}">
 					<input type="hidden" id="sentgen" name="sentgen" value="{{title}}">
 					
 				</div>
+				<div style="color: red; font-weight: bold;" id="error3">Debe de cargar una imagen</div>
+				<div style="color: red; font-weight: bold;" id="error1">El nombre del archivo contiene caracteres no validos</div>
+				<div style="color: red; font-weight: bold;" id="error2">La extensión del archivo no es correcta, debería ser: .jpg .jpeg .png</div>
 				<section id="button-submit">
 					<div class="container">
 						<div class="row">

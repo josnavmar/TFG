@@ -207,12 +207,13 @@
       	var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
       	var chart2 = new google.visualization.PieChart(document.getElementById('chart_div2'));
       	var chart3 = new google.visualization.BarChart(document.getElementById('chart_div3'));
-      	//var chart4 = new google.visualization.BarChart(document.getElementById('chart_div4'));
       	chart.draw(data, options);
       	chart2.draw(data2, options2);
     	chart3.draw(data3, options3);
-      	//chart4.draw(data4, options4);
 	}
+	
+	
+	    
 </script>
 
 <!-- home section -->
@@ -229,8 +230,6 @@
 						</div>
 						<div class="col-md-6" id="chart_div3" style="height: 250px;">
 						</div>
-						<!--  <div class="col-md-6" id="chart_div4" style="height: 250px;">
-						</div> -->
 						<a ref="#" data-toggle="modal" data-target="#modal2" title="Pulse aquí para ver una demostración del algoritmo seleccionada con la configuración elegida anteriormente." type="button"
 							class="btn btn-warning" id="text">Demo</a> 
 						<a href="/welcome/" type="button" class="btn btn-warning">Volver</a>
@@ -249,13 +248,13 @@
 	<div class="modal-dialog">
 		<div class="modal-content modal-popup">
 			<div class="modal-header">
-				<button type="button" id="close" class="close" data-dismiss="modal"
+				<button type="button" onclick="cerrar();" id="close" class="close" data-dismiss="modal"
 					aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
 				<h4 class="modal-title">Demostración</h4>
 			</div>
-			<form action="/text/demo/" method="post">{% csrf_token %}
+			<form action="/text/demo/" method="post" name="formDemo">{% csrf_token %}
 				<div class="form-group row">
 					<div class="col-xs-12">
 						<textarea id="inputDemo" name="inputDemo" style="height:150px; width: 85%; color: white;" placeholder="Introduce una frase para predecir" class="form-control" name="demo"/></textarea>	
@@ -272,6 +271,7 @@
 					<h2 class="wow fadeInUp" style="font-weight: bold;" data-wow-delay="0.8s">{{prueba}}</h2>
 					
 				</div>
+				<div style="color: red; font-weight: bold;" id="error">Debe escribir una frase</div>
 				<section id="button-demo">
 					<div class="container">
 						<div class="row">
