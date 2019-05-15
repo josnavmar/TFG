@@ -2,7 +2,7 @@ from keras.callbacks import CSVLogger, ModelCheckpoint, EarlyStopping
 from keras.callbacks import ReduceLROnPlateau
 from keras.preprocessing.image import ImageDataGenerator
 
-from image.src.models.cnn import big_XCEPTION
+from image.src.models.cnn import mini_XCEPTION
 from image.src.utils.datasets import DataManager
 from image.src.utils.datasets import split_data
 from image.src.utils.preprocessor import preprocess_input
@@ -29,7 +29,7 @@ data_generator = ImageDataGenerator(
                         horizontal_flip=True)
 
 # model parameters/compilation
-model = big_XCEPTION(input_shape, num_classes)
+model = mini_XCEPTION(input_shape, num_classes)
 model.compile(optimizer='rmsprop', loss='categorical_crossentropy',
               metrics=['acc'])
 model.summary()

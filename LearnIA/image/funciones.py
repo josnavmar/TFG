@@ -5,6 +5,7 @@ from keras.models import load_model
 import numpy as np
 from django import forms
 from LearnIA.settings import BASE_DIR, BASE_DIR_RE
+from keras import backend as K
 
 from image.src.utils.datasets import get_labels
 from image.src.utils.inference import detect_faces
@@ -1075,6 +1076,8 @@ def desgeneraliza(emotion_text):
 
 def demostracion(pathfile, model, pathmodel, sentgen):
     
+    K.clear_session()
+    
     emotion_text=''
     gender_text=''
     
@@ -1153,5 +1156,6 @@ def demostracion(pathfile, model, pathmodel, sentgen):
     bgr_image = cv2.cvtColor(rgb_image, cv2.COLOR_RGB2BGR)
     cv2.imwrite(BASE_DIR_RE+'/media/prediccion.png', bgr_image)
     
+    K.clear_session()
         
     return emotion_text, gender_text

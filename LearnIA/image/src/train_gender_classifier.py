@@ -61,3 +61,4 @@ model.fit_generator(image_generator.flow(mode='train'),
                     callbacks=callbacks,
                     validation_data=image_generator.flow('val'),
                     validation_steps=int(len(val_keys) / batch_size))
+
